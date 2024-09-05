@@ -1,16 +1,36 @@
 package Model;
 
 public class Nuevo extends Estados {
-	public Proceso proceso;
+	private Proceso proceso;
 	
-	public void cambiarEstado(){	
-		// TODO implement here
+	public Nuevo(Proceso proceso){
+		this.proceso=proceso;
 	}
-	
-    public void toListo() {
-        // TODO implement here
-    }
 
-    
+	@Override
+	public void NuevoAListo() {
+		So so = So.getSo();
+		this.proceso.cambiarEstado(new Listo(this.proceso));
+		So.getListos().offer(this.proceso);	
+
+		so.getPolitica().OrdenamientoSegúnPolitica(So.getListos());
+	}
+
+
+	@Override
+	public void ListoAEjecutando() {}
+
+	@Override
+	public void EjecutandoAListo() {}
+
+	@Override
+	public void EjecutandoABloqueado() {}
+
+	@Override
+	public void EjecutandoATerminado() {}
+
+	@Override
+	public void BloqueadoAListo() {}
+
 
 }
