@@ -1,7 +1,19 @@
 package Model;
+import java.util.Queue;
 
-public class FCFS extends Despachador {
-    public void descachar() {
-        // TODO implement here
-    }   
+import Model.*;
+
+public class FCFS extends Politica {
+
+	@Override
+	public void OrdenamientoSegúnPolitica(Queue<Proceso> colaDeProcesos) {}//insercion fetch "encolar"
+
+	@Override
+	public void aplicarPolitica() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	
 }

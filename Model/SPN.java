@@ -1,9 +1,24 @@
 package Model;
+import java.util.Queue;
 
-public class SPN extends Despachador {
+import Model.*;
 
-    public void descachar() {
-        // TODO implement here
-    }
+public class SPN extends Politica {
+
+	@Override
+	public void OrdenamientoSegúnPolitica(Queue<Proceso> colaDeProcesos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void aplicarPolitica() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+
 
 }
