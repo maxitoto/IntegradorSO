@@ -19,13 +19,14 @@ public class inicioController implements ActionListener {
     public static JFileChooser input, output;
     private static So so;
     private List<String> datosDeDocumento;
+    private static int textCont=0;
 
     public inicioController(InicioView iv) {
         this.iv = iv;
+        this.CEV = new ControllerErroresView(iv);
         this.iv.getBtnInput().addActionListener(this);
         this.iv.getBtnOutput().addActionListener(this);
         this.iv.getBtnSimular().addActionListener(this);
-        this.so = So.getSo();
         datosDeDocumento = new ArrayList<String>();
     }
 
@@ -33,9 +34,15 @@ public class inicioController implements ActionListener {
         this.iv.setVisible(true);
     }
 
-    public void actualizarProgress() {
+    public void actualizarProgress(boolean reset) {
+    	if (reset) {
+    		double progress =0;
+            SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
+    	}
+    	else {
         double progress = (double) (So.getTerminados().size() / datosDeDocumento.size()) * 100;
         SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
+    	}
     }
 
     private void buscarRutas(ActionEvent e) {
@@ -64,6 +71,7 @@ public class inicioController implements ActionListener {
     }
 
     public void leerArchivoTxt() {
+    	datosDeDocumento.clear();
         try {
             File selectedFile = this.input.getSelectedFile();
             if (selectedFile == null) {
@@ -94,7 +102,7 @@ public class inicioController implements ActionListener {
 		So.setTcp(Integer.parseInt((iv.getTCPtext().getText())));
 		if(iv.getQuantumtext().isVisible()) {
 			So.setQ(Integer.parseInt((iv.getQuantumtext().getText())));
-		}
+		}else {So.setQ(0);}
 		
 		//set politica
 		if (iv.getRdbtnNewRadioButton().isSelected()) {
@@ -110,6 +118,11 @@ public class inicioController implements ActionListener {
 		} 
     }
    
+    public void reset() {
+        So.reset();  
+        System.gc();  
+    }
+    
     public void cargarProcesosEnNuevos() {
     	for (String string : datosDeDocumento) {
     		String[] datos = string.split(",");
@@ -126,9 +139,8 @@ public class inicioController implements ActionListener {
     	
     }
     
-    
     public static void pv(String texto) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getSelectedFile() + "/registro.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getSelectedFile() + "/registro"+textCont+".txt", true))) {
             writer.write(texto); // Escribe el texto
             writer.newLine(); // Añade una línea en blanco
         } catch (IOException e) {
@@ -138,20 +150,21 @@ public class inicioController implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        CEV = new ControllerErroresView(iv);
         buscarRutas(e);
-
         if (e.getSource() == iv.getBtnSimular()) {
             if (CEV.validarTextField()) {
                 leerArchivoTxt();
+                if(this.so!=null) {reset();}else {this.so = So.getSo();}
                 setOS();
                 cargarProcesosEnNuevos();
+                textCont++;
+                System.out.println(So.CLK);
+                actualizarProgress(true);
                 while(So.getTerminados().size()<datosDeDocumento.size()) {
-        			So.CLK++;
-        			//inicioController.pv(So.CLK-1+"\n");
+        			So.CLK++;		
         			inicioController.pv(
         			       "  Quan: "+So.getContquantum()+"\n"+
-        					(So.CLK-1)+"\n"+
+        					"Clk: "+(So.CLK-1)+"\n"+
         					"Nuevos: " + So.getNuevos() + "\n"+
         					"Listos: " + So.getListos() + "\n"+
         					"Block: " + So.getBloqueados() + "\n"+
@@ -159,7 +172,7 @@ public class inicioController implements ActionListener {
         					"Term: " + So.getTerminados() + "\n"
         					);
 
-        			System.out.println(
+        		/*	System.out.println(
         					"Clock: "+(So.CLK-1)+"  Quan: "+So.getContquantum()+"\n"+
         					"Nuevos: " + So.getNuevos() + "\n"+
         					"Listos: " + So.getListos() + "\n"+
@@ -167,7 +180,7 @@ public class inicioController implements ActionListener {
         					"Ejec: " + (So.getCpu().getEjecutando() == null ? "null" : So.getCpu().getEjecutando())  + "\n"+
         					"Term: " + So.getTerminados() + "\n"
         					);
-        			
+        			*/
         			Cpu.getAuditor().aumentarContadores(); 
         			
         	             
@@ -177,9 +190,20 @@ public class inicioController implements ActionListener {
         			if(So.getPolitica().cuandoPasarDeBloqueadoAListo()) {So.getPolitica().ordenar();  }
         			if(So.getPolitica().cuandoPasarDeNuevoAListo()) {So.getPolitica().ordenar();}
         			if(So.getPolitica().cuandoPasarDeListoAEjecutando()){}
-        			actualizarProgress();
+        			actualizarProgress(false);
         		}
         		    		
+                inicioController.pv(
+     			       "  Quan: "+So.getContquantum()+"\n"+
+     					"Clk: "+(So.CLK-1)+"\n"+
+     					"Nuevos: " + So.getNuevos() + "\n"+
+     					"Listos: " + So.getListos() + "\n"+
+     					"Block: " + So.getBloqueados() + "\n"+
+     					"Ejec: " + (So.getCpu().getEjecutando() == null ? "null" : So.getCpu().getEjecutando())  + "\n"+
+     					"Term: " + So.getTerminados() + "\n"
+     					);
+                
+                
         		for (String string : Cpu.getAuditor().contabilidadFinal()) {
         			inicioController.pv(string);
         		}

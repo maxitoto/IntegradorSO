@@ -40,6 +40,26 @@ public class So {
     	So.q=0;
     }
 
+    public static void reset() {
+        Listos = new LinkedList<>();
+        Bloqueados = new LinkedList<>();
+        Nuevos = new LinkedList<>();
+        Terminados = new LinkedList<>();
+        cpu = Cpu.resetCpu();
+        CLK = 0;
+        timeRetornoXtanda = 0;
+        timeRetornoMedioXtanda = 0.0;
+        tip = 0;
+        tfp = 0;
+        tcp = 0;
+        q = 0;
+        contquantum = 0;
+        bitCambioDeContexto = false;
+        bitDarRecursosAProceso = false;
+        bitQuitarRecursosAProceos = false;
+        politica = null;  
+    }
+    
     public static So getSo() {
         if(So.so == null) {
         	So.so = new So();

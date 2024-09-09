@@ -11,7 +11,16 @@ public class Cpu {
 	   private static Auditor auditor = new Auditor();
 	   
 	   private Cpu() {}
-	    
+	   
+	   public static Cpu resetCpu() {
+		    Cpu.setEjecutando(null);
+		    Cpu.setTimeOcioso(0);
+		    Cpu.setTimeUsoXprocesos(0);
+		    Cpu.settUsadaPorSO(0);
+		    Cpu.setAuditor(new Auditor());
+		    return Cpu.cpu;
+		}
+	   
 	   public static Cpu getCpu() {
 	           if(Cpu.cpu == null) {
 	        	   Cpu.cpu = new Cpu();

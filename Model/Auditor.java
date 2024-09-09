@@ -65,7 +65,6 @@ public class Auditor {
 }
 			 
 
-	
 	public List<String> contabilidadFinal() {
 	    List<String> listaResultados = new ArrayList<>();
 
