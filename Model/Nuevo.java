@@ -1,16 +1,33 @@
 package Model;
 
+import Controller.inicioController;
+
 public class Nuevo extends Estados {
-	public Proceso proceso;
 	
-	public void cambiarEstado(){	
-		// TODO implement here
+	private Proceso proceso;
+	
+	public Nuevo(Proceso proceso){
+		this.proceso=proceso;
 	}
-	
-    public void toListo() {
-        // TODO implement here
-    }
 
-    
+	@Override
+	public void NuevoAListo() {
+		So.getListos().offer(this.proceso);
+		So.getNuevos().remove(this.proceso);
+		proceso.cambiarEstado(new Listo(this.proceso));
+		
+		So.setBitDarRecursosAProceso(true);
+		inicioController.pv("Cpu ocupadado Asignando Recursos al "+ this.proceso.getId()+" 'TIP'"+" \n");
+	}
 
+	@Override
+	public void ListoAEjecutando() {}
+	@Override
+	public void EjecutandoAListo() {}
+	@Override
+	public void EjecutandoABloqueado() {}
+	@Override
+	public void EjecutandoATerminado() {}
+	@Override
+	public void BloqueadoAListo() {}
 }
