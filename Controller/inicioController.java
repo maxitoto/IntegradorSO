@@ -141,79 +141,174 @@ public class inicioController implements ActionListener {
     
     public static void pv(String texto) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getSelectedFile() + "/registro"+textCont+".txt", true))) {
-            writer.write(texto); // Escribe el texto
-            writer.newLine(); // Añade una línea en blanco
+            writer.write(texto); 
+            writer.newLine(); 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
+    public static String formatProcessList(List<Proceso> processes) {
+        StringBuilder formatted = new StringBuilder();
+        int spacing = 30; // Ajusta el valor del espacio para alinear correctamente
+        
+        if (processes.isEmpty()) {
+            formatted.append("[]");
+        } else {
+            formatted.append("[{\n");
+
+            // Formateo para los encabezados
+            formatted.append(String.format("%-" + spacing + "s", "Proceso"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Arribo"));
+            formatted.append(String.format("%-" + spacing + "s", "Rafagas de CPU"));
+            formatted.append(String.format("%-" + spacing + "s", "Duración Rafaga"));
+            formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
+            formatted.append(String.format("%-" + spacing + "s", "Prioridad"));
+            formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Actual Rafaga"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Bloqueado"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Retorno"));
+            formatted.append(String.format("%-" + spacing + "s", "Retorno Normalizado"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo en Listo"));
+            formatted.append(String.format("%-" + spacing + "s", "Suma TCP"));
+            formatted.append(String.format("%-" + spacing + "s", "Recursos"));
+            formatted.append("\n");
+
+            // Formateo para cada proceso
+            for (Proceso p : processes) {
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getId()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoDeArribo()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
+                formatted.append(String.format("%-" + spacing + "s","            " +  p.getDuracionDePeriodoEnBloqueado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getPrioridad()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getContRafagasActuales()));
+                formatted.append(String.format("%-" + spacing + "s","            " +  p.getTiempoActualDeRafaga()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoEnEstadoBloqueado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetorno()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetornoNormalizado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeEnListo()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getSumaDeTCPDesdeQueFuiCreado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.isTengoLosRecursos()));
+                formatted.append("\n");
+            }
+
+            formatted.append("}]");
+        }
+        return formatted.toString();
+    }
+    public static String formatSingleProcess(Proceso p) {
+        if (p == null) {
+            return "null";
+        }
+        
+        StringBuilder formatted = new StringBuilder();
+        int spacing = 30; // Ajusta el valor del espacio para alinear correctamente
+        
+     // Formateo para los encabezados
+        formatted.append(String.format("%-" + spacing + "s", "Proceso"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Arribo"));
+        formatted.append(String.format("%-" + spacing + "s", "Rafagas de CPU"));
+        formatted.append(String.format("%-" + spacing + "s", "Duración Rafaga"));
+        formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
+        formatted.append(String.format("%-" + spacing + "s", "Prioridad"));
+        formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Actual Rafaga"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Bloqueado"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Retorno"));
+        formatted.append(String.format("%-" + spacing + "s", "Retorno Normalizado"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo en Listo"));
+        formatted.append(String.format("%-" + spacing + "s", "Suma TCP"));
+        formatted.append(String.format("%-" + spacing + "s", "Recursos"));
+        formatted.append("\n");
+        
+        // Formateo para un solo proceso
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getId()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoDeArribo()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDePeriodoEnBloqueado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getPrioridad()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getContRafagasActuales()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoActualDeRafaga()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoEnEstadoBloqueado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetorno()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetornoNormalizado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeEnListo()));
+        formatted.append(String.format("%-" + spacing + "s","            " +  p.getSumaDeTCPDesdeQueFuiCreado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.isTengoLosRecursos()));
+        
+        return formatted.toString();
+    }
+
+
+    public static void registrarEstado() {
+        Proceso ejec = So.getCpu().getEjecutando();
+        String logEntry = 
+            "Quan: " + So.getContquantum() + "\n" +
+            "Clk: " + (So.CLK - 1) + "\n" +
+            "Nuevos: " + formatProcessList((List)So.getNuevos()) + "\n" +
+            "Listos: " + formatProcessList((List)So.getListos()) + "\n" +
+            "Block: " + formatProcessList((List)So.getBloqueados()) + "\n" +
+            "Ejec: " + formatSingleProcess(ejec) + "\n" +
+            "Term: " + formatProcessList((List)So.getTerminados()) + "\n";
+
+        pv(logEntry); 
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         buscarRutas(e);
         if (e.getSource() == iv.getBtnSimular()) {
             if (CEV.validarTextField()) {
                 leerArchivoTxt();
-                if(this.so!=null) {reset();}else {this.so = So.getSo();}
+                if (this.so != null) { reset(); } else { this.so = So.getSo(); }
                 setOS();
                 cargarProcesosEnNuevos();
                 textCont++;
-                System.out.println(So.CLK);
                 actualizarProgress(true);
-                while(So.getTerminados().size()<datosDeDocumento.size()) {
-        			So.CLK++;		
-        			inicioController.pv(
-        			       "  Quan: "+So.getContquantum()+"\n"+
-        					"Clk: "+(So.CLK-1)+"\n"+
-        					"Nuevos: " + So.getNuevos() + "\n"+
-        					"Listos: " + So.getListos() + "\n"+
-        					"Block: " + So.getBloqueados() + "\n"+
-        					"Ejec: " + (So.getCpu().getEjecutando() == null ? "null" : So.getCpu().getEjecutando())  + "\n"+
-        					"Term: " + So.getTerminados() + "\n"
-        					);
+                
 
-        		/*	System.out.println(
-        					"Clock: "+(So.CLK-1)+"  Quan: "+So.getContquantum()+"\n"+
-        					"Nuevos: " + So.getNuevos() + "\n"+
-        					"Listos: " + So.getListos() + "\n"+
-        					"Block: " + So.getBloqueados() + "\n"+
-        					"Ejec: " + (So.getCpu().getEjecutando() == null ? "null" : So.getCpu().getEjecutando())  + "\n"+
-        					"Term: " + So.getTerminados() + "\n"
-        					);
-        			*/
-        			Cpu.getAuditor().aumentarContadores(); 
-        			
-        	             
-        			if(So.getPolitica().cuandoPasarDeEjecutandoATerminado()){}
-        			if(So.getPolitica().cuandoPasarDeEjecutandoABloqueado()) { }
-        			if(So.getPolitica().cuandoPasarDeEjecutandoAListo()){So.getPolitica().ordenar();  }
-        			if(So.getPolitica().cuandoPasarDeBloqueadoAListo()) {So.getPolitica().ordenar();  }
-        			if(So.getPolitica().cuandoPasarDeNuevoAListo()) {So.getPolitica().ordenar();}
-        			if(So.getPolitica().cuandoPasarDeListoAEjecutando()){}
-        			actualizarProgress(false);
-        		}
-        		    		
-                inicioController.pv(
-     			       "  Quan: "+So.getContquantum()+"\n"+
-     					"Clk: "+(So.CLK-1)+"\n"+
-     					"Nuevos: " + So.getNuevos() + "\n"+
-     					"Listos: " + So.getListos() + "\n"+
-     					"Block: " + So.getBloqueados() + "\n"+
-     					"Ejec: " + (So.getCpu().getEjecutando() == null ? "null" : So.getCpu().getEjecutando())  + "\n"+
-     					"Term: " + So.getTerminados() + "\n"
-     					);
+                inicioController.pv("Politica: " + So.getPolitica().toString() + "\n");
                 
+
+                while (So.getTerminados().size() < datosDeDocumento.size()) {
+                    So.CLK++;
+                    
+     
+                    registrarEstado();
+                    
+
+                    Cpu.getAuditor().aumentarContadores();
+                    
+ 
+                    if (So.getPolitica().cuandoPasarDeEjecutandoATerminado()) {}
+                    if (So.getPolitica().cuandoPasarDeEjecutandoABloqueado()) {}
+                    if (So.getPolitica().cuandoPasarDeEjecutandoAListo()) { So.getPolitica().ordenar(); }
+                    if (So.getPolitica().cuandoPasarDeBloqueadoAListo()) { So.getPolitica().ordenar(); }
+                    if (So.getPolitica().cuandoPasarDeNuevoAListo()) { So.getPolitica().ordenar(); }
+                    if (So.getPolitica().cuandoPasarDeListoAEjecutando()) {}
+                    
+
+                    actualizarProgress(false);
+                }
                 
-        		for (String string : Cpu.getAuditor().contabilidadFinal()) {
-        			inicioController.pv(string);
-        		}
-        		
-        		inicioController.pv("\n"+"T Cpu Ocioso: "+Cpu.getTimeOcioso()+"\n");
-        		inicioController.pv("T Cpu UsoxProcesos: "+Cpu.getTimeUsoXprocesos()+"\n");
-        		inicioController.pv("T Cpu UsoxSo: "+Cpu.gettUsadaPorSO()+"\n");
-                         
-       }
-     }
-   }
- }
+ 
+                registrarEstado();
+                
+ 
+                for (String string : Cpu.getAuditor().contabilidadFinal()) {
+                    inicioController.pv(string);
+                }
+                
+       
+                inicioController.pv("\nT Cpu Ocioso: " + Cpu.getTimeOcioso() + "\n");
+                inicioController.pv("T Cpu UsoxProcesos: " + Cpu.getTimeUsoXprocesos() + "\n");
+                inicioController.pv("T Cpu UsoxSo: " + Cpu.gettUsadaPorSO() + "\n");
+            }
+        }
+    }
+}
+
 

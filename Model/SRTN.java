@@ -28,7 +28,11 @@ public class SRTN extends Politica{
 		
 	}
 
-
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return "SRTN";
+}
 
 
 }

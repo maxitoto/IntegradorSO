@@ -34,6 +34,11 @@ public class SPN extends Politica {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "SPN";
+	}
 
 }
