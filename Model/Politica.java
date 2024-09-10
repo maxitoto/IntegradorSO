@@ -6,7 +6,15 @@ import java.util.List;
 import Controller.inicioController;
 
 public abstract class Politica  {
-	public abstract boolean cuandoPasarDeListoAEjecutando();
+
+	public boolean cuandoPasarDeListoAEjecutando() {
+		if(Cpu.getEjecutando()==null && !So.getListos().isEmpty() && So.getListos().peek().isTengoLosRecursos()) {
+					inicioController.pv(So.getListos().peek().getId()+" paso de listo  a ejectuando"+"\n");
+					So.getListos().peek().ListoAEjecutando();
+					return true;
+				}else {return false;}
+		}
+	
 	public abstract boolean cuandoPasarDeEjecutandoAListo();
 	
 	public  boolean cuandoPasarDeEjecutandoABloqueado() {

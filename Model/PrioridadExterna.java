@@ -18,17 +18,6 @@ public class PrioridadExterna extends Politica{
 	}
 
 	@Override
-	public boolean cuandoPasarDeListoAEjecutando() {
-		if(Cpu.getEjecutando()==null && !So.getListos().isEmpty() && So.getListos().peek().isTengoLosRecursos()) {
-					inicioController.pv(So.getListos().peek().getId()+" paso de listo  a ejectuando"+"\n");
-					So.getListos().peek().ListoAEjecutando();
-					return true;
-				}else {return false;}
-		}
-			
-	
-
-	@Override
 	public boolean cuandoPasarDeEjecutandoAListo() {
 		if(Cpu.getEjecutando()!=null && !So.getListos().isEmpty() && So.getListos().peek().getPrioridad()>Cpu.getEjecutando().getPrioridad()) {
 				So.setBitCambioDeContexto(true);//permito que se incremente el contador de Cpu usado por So

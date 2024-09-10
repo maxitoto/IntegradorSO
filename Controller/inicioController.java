@@ -29,11 +29,9 @@ public class inicioController implements ActionListener {
         this.iv.getBtnSimular().addActionListener(this);
         datosDeDocumento = new ArrayList<String>();
     }
-
     public void iniciar() {
         this.iv.setVisible(true);
     }
-
     public void actualizarProgress(boolean reset) {
     	if (reset) {
     		double progress =0;
@@ -44,7 +42,6 @@ public class inicioController implements ActionListener {
         SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
     	}
     }
-
     private void buscarRutas(ActionEvent e) {
         Object source = e.getSource();
 
@@ -69,7 +66,6 @@ public class inicioController implements ActionListener {
             }
         }
     }
-
     public void leerArchivoTxt() {
     	datosDeDocumento.clear();
         try {
@@ -94,7 +90,6 @@ public class inicioController implements ActionListener {
             JOptionPane.showMessageDialog(iv, "Error al leer el archivo o en el formato de los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
     public void setOS() {
     	//datos del usuario
     	So.setTip(Integer.parseInt(iv.getTIPtext().getText()));
@@ -117,12 +112,10 @@ public class inicioController implements ActionListener {
 		    this.so.setPolitica(new SRTN());
 		} 
     }
-   
     public void reset() {
         So.reset();  
         System.gc();  
-    }
-    
+    }  
     public void cargarProcesosEnNuevos() {
     	for (String string : datosDeDocumento) {
     		String[] datos = string.split(",");
@@ -138,7 +131,6 @@ public class inicioController implements ActionListener {
 		}
     	
     }
-    
     public static void pv(String texto) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getSelectedFile() + "/registro"+textCont+".txt", true))) {
             writer.write(texto); 
@@ -147,7 +139,6 @@ public class inicioController implements ActionListener {
             e.printStackTrace();
         }
     }
-
     public static String formatProcessList(List<Proceso> processes) {
         StringBuilder formatted = new StringBuilder();
         int spacing = 30; // Ajusta el valor del espacio para alinear correctamente
@@ -240,8 +231,6 @@ public class inicioController implements ActionListener {
         
         return formatted.toString();
     }
-
-
     public static void registrarEstado() {
         Proceso ejec = So.getCpu().getEjecutando();
         String logEntry = 
@@ -256,7 +245,6 @@ public class inicioController implements ActionListener {
         pv(logEntry); 
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         buscarRutas(e);
@@ -267,22 +255,13 @@ public class inicioController implements ActionListener {
                 setOS();
                 cargarProcesosEnNuevos();
                 textCont++;
-                actualizarProgress(true);
-                
-
+                actualizarProgress(true);       
                 inicioController.pv("Politica: " + So.getPolitica().toString() + "\n");
-                
-
                 while (So.getTerminados().size() < datosDeDocumento.size()) {
-                    So.CLK++;
-                    
-     
+                    So.CLK++;       
                     registrarEstado();
-                    
-
                     Cpu.getAuditor().aumentarContadores();
-                    
- 
+
                     if (So.getPolitica().cuandoPasarDeEjecutandoATerminado()) {}
                     if (So.getPolitica().cuandoPasarDeEjecutandoABloqueado()) {}
                     if (So.getPolitica().cuandoPasarDeEjecutandoAListo()) { So.getPolitica().ordenar(); }
@@ -290,23 +269,21 @@ public class inicioController implements ActionListener {
                     if (So.getPolitica().cuandoPasarDeNuevoAListo()) { So.getPolitica().ordenar(); }
                     if (So.getPolitica().cuandoPasarDeListoAEjecutando()) {}
                     
-
                     actualizarProgress(false);
                 }
-                
- 
                 registrarEstado();
-                
- 
-                for (String string : Cpu.getAuditor().contabilidadFinal()) {
+
+                for (String string : Cpu.getAuditor().contabilidadFinalXProceso()) {
                     inicioController.pv(string);
                 }
                 
-       
+                for (String string : Cpu.getAuditor().contabilidadFinalXTanda()) {
+                    inicioController.pv(string);
+                }
                 inicioController.pv("\nT Cpu Ocioso: " + Cpu.getTimeOcioso() + "\n");
                 inicioController.pv("T Cpu UsoxProcesos: " + Cpu.getTimeUsoXprocesos() + "\n");
                 inicioController.pv("T Cpu UsoxSo: " + Cpu.gettUsadaPorSO() + "\n");
-            }
+             }
         }
     }
 }

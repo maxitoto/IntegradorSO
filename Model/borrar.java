@@ -56,9 +56,7 @@ public class borrar {
 		
 
 		
-		for (String string : Cpu.getAuditor().contabilidadFinal()) {
-			System.out.println(string);
-		}
+		
 		
 		
 		}

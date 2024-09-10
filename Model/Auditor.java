@@ -39,15 +39,7 @@ public class Auditor {
 				                 inicioController.pv("Cpu esta Ocioson\n");
 				                 }//si no hay proceso ejecutando entonces el cpu esta ocioso
 					 
-			 
-		
-			 
-			
-			 
-		
-			                         
-		            
-		
+	         		
 		if(!So.getListos().isEmpty()) {
 			for (Proceso p : So.getListos()) {//incrementa el tiempo en estado de listo
 				if(!p.isTengoLosRecursos()) {// si no tengo los recursos entocens fui recien creado y no debo aumentar el tiempo en estado de listo en 1, por lo menos la primera vez
@@ -65,35 +57,66 @@ public class Auditor {
 }
 			 
 
-	public List<String> contabilidadFinal() {
+	public List<String> contabilidadFinalXProceso() {
 	    List<String> listaResultados = new ArrayList<>();
+	    if(!So.getTerminados().isEmpty()) {
+	    	for (Proceso p : So.getTerminados()) {
+	        	// Calcula el tiempo de retorno desde que fue creado hasta que finalizó
+	        	double tiempoRetorno = So.getTip() + // tiempo de nuevo a listo (creación)
+	                            	p.getTimeEnListo() + // tiempo en estado de listo
+	                            	(p.getDuracionDePeriodoEnBloqueado() * (p.getRafagasDeCpuParaTerminar() - 1)) + // duración en estado de bloqueado * cantidad de veces que estuvo ahí menos la última que terminó
+	                            	(p.getDuracionDeCadaRafaga() * p.getRafagasDeCpuParaTerminar()) + // duración de cada ráfaga de CPU
+	                            	p.getSumaDeTCPDesdeQueFuiCreado() + // suma de TCP desde que fue creado
+	                            	So.getTfp(); // tiempo final de procesamiento
 
-	    for (Proceso p : So.getTerminados()) {
-	        // Calcula el tiempo de retorno desde que fue creado hasta que finalizó
-	        double tiempoRetorno = So.getTip() + // tiempo de nuevo a listo (creación)
-	                            p.getTimeEnListo() + // tiempo en estado de listo
-	                            (p.getDuracionDePeriodoEnBloqueado() * (p.getRafagasDeCpuParaTerminar() - 1)) + // duración en estado de bloqueado * cantidad de veces que estuvo ahí menos la última que terminó
-	                            (p.getDuracionDeCadaRafaga() * p.getRafagasDeCpuParaTerminar()) + // duración de cada ráfaga de CPU
-	                            p.getSumaDeTCPDesdeQueFuiCreado() + // suma de TCP desde que fue creado
-	                            So.getTfp(); // tiempo final de procesamiento
+	        	p.setTimeRetorno(tiempoRetorno);
+	        
+	        	double tiempoRetornoNormalizado = tiempoRetorno / (p.getDuracionDeCadaRafaga()*p.getRafagasDeCpuParaTerminar());
 
-	        p.setTimeRetorno(tiempoRetorno);
-
-	        // Añade los resultados a la lista
-	        listaResultados.add(
-	            p.getId() + "  tip:" + So.getTip() +
-	            " TListo:" + p.getTimeEnListo() +
-	            " Tblock:" + p.getDuracionDePeriodoEnBloqueado() +
-	            " TTermProc-1:" + (p.getRafagasDeCpuParaTerminar() - 1) +
-	            " durRA:" + p.getDuracionDeCadaRafaga() +
-	            " TtermRaf:" + p.getRafagasDeCpuParaTerminar() +
-	            " SumTCP: " + p.getSumaDeTCPDesdeQueFuiCreado() +
-	            " tfp:" + So.getTfp() +
-	            " Resultado:" + p.getTimeRetorno()
-	        );
+	        	p.setTimeRetornoNormalizado(tiempoRetornoNormalizado);
+	        
+	        	// Añade los resultados a la lista
+	        	listaResultados.add(
+	        		p.getId() + " Tiempo De Retorno = "+p.getTimeRetorno() +"  Tiempo de Retorno Normalizado = "+p.getTimeRetornoNormalizado()   		
+	        		);
+	    	}
+	    	listaResultados.add("\n" );
 	    }
-
 	    return listaResultados;
+	}
+	
+	public List<String> contabilidadFinalXTanda() {
+		 List<String> listaResultados = new ArrayList<>();
+		int menorTiempoDeArribo=1000;
+		Proceso procesoConMenorTiempoDeArribo=null;
+		double sumatoriasDeLosTR = 0;
+		if(!So.getTerminados().isEmpty()) {
+			for (Proceso p : So.getTerminados()) {
+				if(menorTiempoDeArribo>p.getTiempoDeArribo()) {//para el tiempo deretorno por tanda
+					menorTiempoDeArribo=p.getTiempoDeArribo();
+					procesoConMenorTiempoDeArribo=p;
+				}
+				
+				sumatoriasDeLosTR=+p.getTimeRetorno();//para el tiempo medio de retorno por tanda
+				
+			}
+		
+			double tiempoMedioDeRetornoXtanda = sumatoriasDeLosTR/So.getTerminados().size();
+			double tiempoRetornoXtanda =So.getCLK()-procesoConMenorTiempoDeArribo.getTiempoDeArribo(); 
+			
+			// Añade los resultados a la lista
+        	listaResultados.add(
+        		"Tiempo De Retorno Por Tanda = "+tiempoRetornoXtanda+"\n"+
+        		" Tiempo Medio De Retorno Por Tanda = "+tiempoMedioDeRetornoXtanda+"\n"
+        		);
+			
+		}
+		
+		
+		
+		return listaResultados;
+		
+		
 	}
 
 }

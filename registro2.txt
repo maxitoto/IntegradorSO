@@ -1,4 +1,4 @@
-Politica: FCFS
+Politica: Round Robin
 
 Quan: 0
 Clk: 0
@@ -15,7 +15,7 @@ Term: []
 
 Cpu esta Ocioson
 
-Quan: 0
+Quan: 1
 Clk: 1
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Rafagas de CPU                Duración Rafaga               Duración Bloqueo              Prioridad                     Rafagas Actuales              Tiempo Actual Rafaga          Tiempo Bloqueado              Tiempo Retorno                Retorno Normalizado           Tiempo en Listo               Suma TCP                      Recursos                      
@@ -34,7 +34,7 @@ Cpu ocupadado Asignando Recursos al Proceso8 'TIP'
 
 Proceso8 paso de nuevo a listo
 
-Quan: 0
+Quan: 2
 Clk: 2
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Rafagas de CPU                Duración Rafaga               Duración Bloqueo              Prioridad                     Rafagas Actuales              Tiempo Actual Rafaga          Tiempo Bloqueado              Tiempo Retorno                Retorno Normalizado           Tiempo en Listo               Suma TCP                      Recursos                      
@@ -57,7 +57,7 @@ Proceso15 paso de nuevo a listo
 
 Proceso8 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 3
 Clk: 3
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Rafagas de CPU                Duración Rafaga               Duración Bloqueo              Prioridad                     Rafagas Actuales              Tiempo Actual Rafaga          Tiempo Bloqueado              Tiempo Retorno                Retorno Normalizado           Tiempo en Listo               Suma TCP                      Recursos                      
@@ -77,7 +77,7 @@ Cpu ocupadado Asignando Recursos al Proceso2 'TIP'
 
 Proceso2 paso de nuevo a listo
 
-Quan: 0
+Quan: 4
 Clk: 4
 Nuevos: []
 Listos: [{
@@ -91,7 +91,7 @@ Ejec: Proceso                       Tiempo Arribo                 Rafagas de CPU
 Term: []
 
 Cpu ejecuta el P:Proceso8
-Quan: 0
+Quan: 5
 Clk: 5
 Nuevos: []
 Listos: [{
@@ -105,7 +105,7 @@ Ejec: Proceso                       Tiempo Arribo                 Rafagas de CPU
 Term: []
 
 Cpu ejecuta el P:Proceso8
-Quan: 0
+Quan: 6
 Clk: 6
 Nuevos: []
 Listos: [{
@@ -119,7 +119,7 @@ Ejec: Proceso                       Tiempo Arribo                 Rafagas de CPU
 Term: []
 
 Cpu ejecuta el P:Proceso8
-Quan: 0
+Quan: 7
 Clk: 7
 Nuevos: []
 Listos: [{
@@ -141,7 +141,7 @@ Cpu ocupadado Quitando Recursos al Proceso8 'TFP'
 
 Proceso15 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 8
 Clk: 8
 Nuevos: []
 Listos: [{
@@ -157,7 +157,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso15
-Quan: 0
+Quan: 9
 Clk: 9
 Nuevos: []
 Listos: [{
@@ -179,7 +179,7 @@ Proceso15 paso de  ejectuando a bloqueado
 
 Proceso2 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 10
 Clk: 10
 Nuevos: []
 Listos: []
@@ -197,7 +197,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 Cpu ejecuta el P:Proceso2
 Proceso15 paso de bloqueado a listo
 
-Quan: 0
+Quan: 11
 Clk: 11
 Nuevos: []
 Listos: [{
@@ -213,7 +213,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso2
-Quan: 0
+Quan: 12
 Clk: 12
 Nuevos: []
 Listos: [{
@@ -235,7 +235,7 @@ Proceso2 paso de  ejectuando a bloqueado
 
 Proceso15 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 13
 Clk: 13
 Nuevos: []
 Listos: []
@@ -251,7 +251,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso15
-Quan: 0
+Quan: 14
 Clk: 14
 Nuevos: []
 Listos: []
@@ -271,7 +271,7 @@ El P:Proceso15 ha terminado una rafaga completan
 
 Proceso15 paso de  ejectuando a bloqueado
 
-Quan: 0
+Quan: 15
 Clk: 15
 Nuevos: []
 Listos: []
@@ -294,7 +294,7 @@ Proceso15 paso de bloqueado a listo
 
 Proceso2 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 16
 Clk: 16
 Nuevos: []
 Listos: [{
@@ -310,7 +310,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso2
-Quan: 0
+Quan: 17
 Clk: 17
 Nuevos: []
 Listos: [{
@@ -326,7 +326,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso2
-Quan: 0
+Quan: 18
 Clk: 18
 Nuevos: []
 Listos: [{
@@ -348,7 +348,7 @@ Proceso2 paso de  ejectuando a bloqueado
 
 Proceso15 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 19
 Clk: 19
 Nuevos: []
 Listos: []
@@ -364,7 +364,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso15
-Quan: 0
+Quan: 20
 Clk: 20
 Nuevos: []
 Listos: []
@@ -384,7 +384,7 @@ El P:Proceso15 ha terminado una rafaga completan
 
 Proceso15 paso de  ejectuando a bloqueado
 
-Quan: 0
+Quan: 21
 Clk: 21
 Nuevos: []
 Listos: []
@@ -407,7 +407,7 @@ Proceso15 paso de bloqueado a listo
 
 Proceso2 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 22
 Clk: 22
 Nuevos: []
 Listos: [{
@@ -423,7 +423,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso2
-Quan: 0
+Quan: 23
 Clk: 23
 Nuevos: []
 Listos: [{
@@ -439,7 +439,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso2
-Quan: 0
+Quan: 24
 Clk: 24
 Nuevos: []
 Listos: [{
@@ -463,7 +463,7 @@ Cpu ocupadado Quitando Recursos al Proceso2 'TFP'
 
 Proceso15 paso de listo  a ejectuando
 
-Quan: 0
+Quan: 25
 Clk: 25
 Nuevos: []
 Listos: []
@@ -477,7 +477,7 @@ Proceso                       Tiempo Arribo                 Rafagas de CPU      
 }]
 
 Cpu ejecuta el P:Proceso15
-Quan: 0
+Quan: 26
 Clk: 26
 Nuevos: []
 Listos: []
@@ -497,7 +497,7 @@ Proceso15 paso de ejecutando a terminado
 
 Cpu ocupadado Quitando Recursos al Proceso15 'TFP'  
 
-Quan: 0
+Quan: 27
 Clk: 26
 Nuevos: []
 Listos: []
