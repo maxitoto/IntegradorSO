@@ -6,10 +6,10 @@ Quan: 0
 Clk: 0
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             0                             0                             false             
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             0                             0                             false             
             ProcesoB                      3                             83                            4                             0                             2                             0                             3                             0                             0                             0                             false             
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             0                             0                             false             
-            ProcesoD                      5                             83                            2                             0                             2                             0                             2                             0                             0                             0                             false             
+            ProcesoD                      5                             95                            2                             0                             2                             0                             2                             0                             0                             0                             false             
 }]
 Listos: []
 Block: []
@@ -23,10 +23,10 @@ Quan: 0
 Clk: 1
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             0                             0                             false             
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             0                             0                             false             
             ProcesoB                      3                             83                            4                             0                             2                             0                             3                             0                             0                             0                             false             
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             0                             0                             false             
-            ProcesoD                      5                             83                            2                             0                             2                             0                             2                             0                             0                             0                             false             
+            ProcesoD                      5                             95                            2                             0                             2                             0                             2                             0                             0                             0                             false             
 }]
 Listos: []
 Block: []
@@ -46,11 +46,11 @@ Nuevos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoB                      3                             83                            4                             0                             2                             0                             3                             0                             0                             0                             false             
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             0                             0                             false             
-            ProcesoD                      5                             83                            2                             0                             2                             0                             2                             0                             0                             0                             false             
+            ProcesoD                      5                             95                            2                             0                             2                             0                             2                             0                             0                             0                             false             
 }]
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             0                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             0                             0                             true              
 }]
 Block: []
 Ejec: null
@@ -68,12 +68,12 @@ Clk: 3
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             0                             0                             false             
-            ProcesoD                      5                             83                            2                             0                             2                             0                             2                             0                             0                             0                             false             
+            ProcesoD                      5                             95                            2                             0                             2                             0                             2                             0                             0                             0                             false             
 }]
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoB                      3                             83                            4                             0                             2                             0                             3                             0                             0                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             1                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             1                             0                             true              
 }]
 Block: []
 Ejec: null
@@ -91,12 +91,12 @@ Quan: 0
 Clk: 4
 Nuevos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             0                             2                             0                             2                             0                             0                             0                             false             
+            ProcesoD                      5                             95                            2                             0                             2                             0                             2                             0                             0                             0                             false             
 }]
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             0                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             2                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             2                             0                             true              
 }]
 Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
@@ -116,9 +116,9 @@ Clk: 5
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             0                             2                             0                             2                             0                             0                             0                             true              
+            ProcesoD                      5                             95                            2                             0                             2                             0                             2                             0                             0                             0                             true              
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             1                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             3                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             3                             0                             true              
 }]
 Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
@@ -137,14 +137,14 @@ Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             2                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             4                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             4                             0                             true              
 }]
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoB                      3                             83                            4                             1                             2                             2                             3                             1                             0                             0                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             0                             2                             1                             2                             0                             0                             0                             true              
+            ProcesoD                      5                             95                            2                             0                             2                             1                             2                             0                             0                             0                             true              
 Term: []
 
 **************************************************************************************************************************************************
@@ -157,14 +157,14 @@ Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             0                             3                             0                             3                             0                             3                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             5                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             5                             0                             true              
 }]
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoB                      3                             83                            4                             1                             2                             2                             3                             2                             0                             0                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             1                             2                             2                             2                             0                             0                             0                             true              
+            ProcesoD                      5                             95                            2                             1                             2                             2                             2                             0                             0                             0                             true              
 Term: []
 
 **************************************************************************************************************************************************
@@ -178,12 +178,12 @@ Clk: 8
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             6                             0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             6                             0                             true              
 }]
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoB                      3                             83                            4                             1                             2                             2                             3                             3                             0                             0                             true              
-            ProcesoD                      5                             83                            2                             1                             2                             2                             2                             1                             0                             0                             true              
+            ProcesoD                      5                             95                            2                             1                             2                             2                             2                             1                             0                             0                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             0                             3                             1                             3                             0                             3                             0                             true              
@@ -192,61 +192,45 @@ Term: []
 **************************************************************************************************************************************************
 ProcesoB paso de bloqueado a listo
 
-Cpu ejecuta el P:ProcesoC
-Quan: 0
-Clk: 9
-Nuevos: []
-Listos: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             1                             2                             0                             3                             3                             1                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             7                             0                             true              
-}]
-Block: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             1                             2                             2                             2                             2                             0                             0                             true              
-}]
-Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             3                             0                             true              
-Term: []
-
-**************************************************************************************************************************************************
 ProcesoC pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque ProcesoB tiene una rafaga más corta  
-
-ProcesoD paso de bloqueado a listo
 
 ProcesoB paso de listo  a ejectuando
 
 Cpu ejecuta el P:ProcesoB
 Quan: 0
-Clk: 10
+Clk: 9
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             1                             2                             0                             2                             2                             1                             0                             true              
-            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             4                             1                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             8                             0                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             1                             3                             0                             4                             1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             7                             0                             true              
 }]
-Block: []
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             1                             2                             2                             2                             2                             0                             0                             true              
+}]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             1                             2                             1                             3                             3                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             1                             2                             1                             3                             3                             0                             0                             true              
 Term: []
 
 **************************************************************************************************************************************************
+ProcesoD paso de bloqueado a listo
+
 Cpu ejecuta el P:ProcesoB
 El ProcesoB ha terminado una rafaga completan 
 
 Quan: 0
-Clk: 11
+Clk: 10
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             1                             2                             0                             2                             2                             2                             0                             true              
-            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             5                             1                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             9                             0                             true              
+            ProcesoD                      5                             95                            2                             1                             2                             0                             2                             2                             1                             0                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             1                             3                             0                             5                             1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             8                             0                             true              
 }]
 Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             3                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             3                             0                             0                             true              
 Term: []
 
 **************************************************************************************************************************************************
@@ -256,19 +240,19 @@ ProcesoD paso de listo  a ejectuando
 
 Cpu ejecuta el P:ProcesoD
 Quan: 0
-Clk: 12
+Clk: 11
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             6                             1                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             10                            0                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             1                             3                             0                             6                             1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             9                             0                             true              
 }]
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             1                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             1                             0                             0                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             1                             2                             1                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             1                             2                             1                             2                             2                             1                             0                             true              
 Term: []
 
 **************************************************************************************************************************************************
@@ -276,19 +260,19 @@ Cpu ejecuta el P:ProcesoD
 El ProcesoD ha terminado una rafaga completan 
 
 Quan: 0
-Clk: 13
+Clk: 12
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             7                             1                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             11                            0                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             1                             3                             0                             7                             1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             10                            0                             true              
 }]
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             2                             0                             0                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 Term: []
 
 **************************************************************************************************************************************************
@@ -299,50 +283,46 @@ Cpu ocupadado Quitando Recursos al ProcesoD 'TFP'
 ProcesoC paso de listo  a ejectuando
 
 Cpu ejecuta el P:ProcesoC
-El ProcesoC ha terminado una rafaga completan 
-
 Quan: 0
-Clk: 14
+Clk: 13
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             12                            0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             11                            0                             true              
 }]
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             3                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             2                             2                             2                             3                             3                             0                             0                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             0                             7                             1                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             7                             1                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
-ProcesoC paso de  ejectuando a bloqueado
-
 ProcesoB paso de bloqueado a listo
+
+ProcesoC pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque ProcesoB tiene una rafaga más corta  
 
 ProcesoB paso de listo  a ejectuando
 
 Cpu ejecuta el P:ProcesoB
 Quan: 0
-Clk: 15
+Clk: 14
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             13                            0                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             8                             2                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             12                            0                             true              
 }]
-Block: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             1                             7                             1                             true              
-}]
+Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             2                             2                             1                             3                             3                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             2                             2                             1                             3                             3                             0                             0                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -350,25 +330,49 @@ Cpu ejecuta el P:ProcesoB
 El ProcesoB ha terminado una rafaga completan 
 
 Quan: 0
-Clk: 16
+Clk: 15
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             0                             4                             0                             14                            0                             true              
+            ProcesoC                      4                             12                            3                             0                             3                             2                             3                             0                             9                             2                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             13                            0                             true              
 }]
-Block: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             2                             7                             1                             true              
-}]
+Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             3                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             3                             0                             0                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
 ProcesoB paso de  ejectuando a bloqueado
+
+ProcesoC paso de listo  a ejectuando
+
+Cpu ejecuta el P:ProcesoC
+El ProcesoC ha terminado una rafaga completan 
+
+Quan: 0
+Clk: 16
+Nuevos: []
+Listos: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             0                             5                             0                             4                             0                             14                            0                             true              
+}]
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             1                             0                             0                             true              
+}]
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             0                             9                             2                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+}]
+
+**************************************************************************************************************************************************
+ProcesoC paso de  ejectuando a bloqueado
 
 ProcesoA paso de listo  a ejectuando
 
@@ -379,122 +383,80 @@ Nuevos: []
 Listos: []
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             3                             7                             1                             true              
-            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             1                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             2                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             1                             9                             2                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             1                             4                             0                             14                            0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             1                             4                             0                             14                            0                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
-ProcesoC paso de bloqueado a listo
-
 Cpu ejecuta el P:ProcesoA
 Quan: 0
 Clk: 18
 Nuevos: []
-Listos: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             0                             3                             3                             8                             1                             true              
-}]
+Listos: []
 Block: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             2                             9                             2                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             2                             4                             0                             14                            0                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             2                             4                             0                             14                            0                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-}]
-
-**************************************************************************************************************************************************
-ProcesoA pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque ProcesoC tiene una rafaga más corta  
-
-ProcesoC paso de listo  a ejectuando
-
-Cpu ejecuta el P:ProcesoC
-Quan: 0
-Clk: 19
-Nuevos: []
-Listos: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             2                             4                             0                             15                            1                             true              
-}]
-Block: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             3                             2                             2                             3                             3                             1                             0                             true              
-}]
-Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             1                             3                             3                             8                             1                             true              
-Term: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
 ProcesoB paso de bloqueado a listo
 
-Cpu ejecuta el P:ProcesoC
-Quan: 0
-Clk: 20
-Nuevos: []
-Listos: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             3                             2                             0                             3                             3                             2                             0                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             2                             4                             0                             16                            1                             true              
-}]
-Block: []
-Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             2                             3                             3                             8                             1                             true              
-Term: [{
-Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-}]
-
-**************************************************************************************************************************************************
-ProcesoC pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque ProcesoB tiene una rafaga más corta  
+ProcesoA pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque ProcesoB tiene una rafaga más corta  
 
 ProcesoB paso de listo  a ejectuando
 
 Cpu ejecuta el P:ProcesoB
 Quan: 0
-Clk: 21
+Clk: 19
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             2                             3                             3                             9                             2                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             2                             4                             0                             17                            1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             2                             4                             0                             15                            1                             true              
 }]
-Block: []
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoC                      4                             12                            3                             1                             3                             3                             3                             3                             9                             2                             true              
+}]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             3                             2                             1                             3                             3                             2                             0                             true              
+            ProcesoB                      3                             83                            4                             3                             2                             1                             3                             3                             0                             0                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
+ProcesoC paso de bloqueado a listo
+
 Cpu ejecuta el P:ProcesoB
 El ProcesoB ha terminado una rafaga completan 
 
 Quan: 0
-Clk: 22
+Clk: 20
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoC                      4                             12                            3                             1                             3                             2                             3                             3                             10                            2                             true              
-            ProcesoA                      2                             89                            1                             0                             5                             2                             4                             0                             18                            1                             true              
+            ProcesoC                      4                             12                            3                             1                             3                             0                             3                             3                             10                            2                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             2                             4                             0                             16                            1                             true              
 }]
 Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -505,6 +467,42 @@ Cpu ocupadado Quitando Recursos al ProcesoB 'TFP'
 ProcesoC paso de listo  a ejectuando
 
 Cpu ejecuta el P:ProcesoC
+Quan: 0
+Clk: 21
+Nuevos: []
+Listos: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             0                             5                             2                             4                             0                             17                            1                             true              
+}]
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoC                      4                             12                            3                             1                             3                             1                             3                             3                             10                            2                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+}]
+
+**************************************************************************************************************************************************
+Cpu ejecuta el P:ProcesoC
+Quan: 0
+Clk: 22
+Nuevos: []
+Listos: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             0                             5                             2                             4                             0                             18                            1                             true              
+}]
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoC                      4                             12                            3                             1                             3                             2                             3                             3                             10                            2                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+}]
+
+**************************************************************************************************************************************************
+Cpu ejecuta el P:ProcesoC
 El ProcesoC ha terminado una rafaga completan 
 
 Quan: 0
@@ -512,15 +510,15 @@ Clk: 23
 Nuevos: []
 Listos: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             2                             4                             0                             19                            1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             2                             4                             0                             19                            1                             true              
 }]
 Block: []
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             2                             3                             3                             3                             3                             10                            2                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -538,11 +536,11 @@ Proceso                       Tiempo Arribo                 Prioridad           
             ProcesoC                      4                             12                            3                             2                             3                             3                             3                             1                             10                            2                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             3                             4                             0                             19                            1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             3                             4                             0                             19                            1                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -556,11 +554,11 @@ Proceso                       Tiempo Arribo                 Prioridad           
             ProcesoC                      4                             12                            3                             2                             3                             3                             3                             2                             10                            2                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             0                             5                             4                             4                             0                             19                            1                             true              
+            ProcesoA                      2                             89                            2                             0                             5                             4                             4                             0                             19                            1                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -576,17 +574,15 @@ Proceso                       Tiempo Arribo                 Prioridad           
             ProcesoC                      4                             12                            3                             2                             3                             3                             3                             3                             10                            2                             true              
 }]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoA                      2                             89                            1                             1                             5                             5                             4                             0                             19                            1                             true              
+            ProcesoA                      2                             89                            2                             1                             5                             5                             4                             0                             19                            1                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
-ProcesoA paso de ejecutando a terminado
-
-Cpu ocupadado Quitando Recursos al ProcesoA 'TFP'  
+ProcesoA paso de  ejectuando a bloqueado
 
 ProcesoC paso de bloqueado a listo
 
@@ -597,14 +593,16 @@ Quan: 0
 Clk: 27
 Nuevos: []
 Listos: []
-Block: []
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             5                             4                             1                             19                            1                             true              
+}]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             2                             3                             1                             3                             3                             10                            2                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
-            ProcesoA                      2                             89                            1                             1                             5                             5                             4                             0                             19                            1                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -613,14 +611,16 @@ Quan: 0
 Clk: 28
 Nuevos: []
 Listos: []
-Block: []
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             5                             4                             2                             19                            1                             true              
+}]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             2                             3                             2                             3                             3                             10                            2                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
-            ProcesoA                      2                             89                            1                             1                             5                             5                             4                             0                             19                            1                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -631,14 +631,16 @@ Quan: 0
 Clk: 29
 Nuevos: []
 Listos: []
-Block: []
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             5                             4                             3                             19                            1                             true              
+}]
 Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
             ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
-            ProcesoA                      2                             89                            1                             1                             5                             5                             4                             0                             19                            1                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
 }]
 
 **************************************************************************************************************************************************
@@ -646,33 +648,142 @@ ProcesoC paso de ejecutando a terminado
 
 Cpu ocupadado Quitando Recursos al ProcesoC 'TFP'  
 
+ Cpu esta Ocioson 
+
 Quan: 0
 Clk: 30
+Nuevos: []
+Listos: []
+Block: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             5                             4                             4                             19                            1                             true              
+}]
+Ejec: null
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+}]
+
+**************************************************************************************************************************************************
+ProcesoA paso de bloqueado a listo
+
+ProcesoA paso de listo  a ejectuando
+
+Cpu ejecuta el P:ProcesoA
+Quan: 0
+Clk: 31
+Nuevos: []
+Listos: []
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             1                             4                             4                             19                            1                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+}]
+
+**************************************************************************************************************************************************
+Cpu ejecuta el P:ProcesoA
+Quan: 0
+Clk: 32
+Nuevos: []
+Listos: []
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             2                             4                             4                             19                            1                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+}]
+
+**************************************************************************************************************************************************
+Cpu ejecuta el P:ProcesoA
+Quan: 0
+Clk: 33
+Nuevos: []
+Listos: []
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             3                             4                             4                             19                            1                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+}]
+
+**************************************************************************************************************************************************
+Cpu ejecuta el P:ProcesoA
+Quan: 0
+Clk: 34
+Nuevos: []
+Listos: []
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             1                             5                             4                             4                             4                             19                            1                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+}]
+
+**************************************************************************************************************************************************
+Cpu ejecuta el P:ProcesoA
+El ProcesoA ha terminado una rafaga completan 
+
+Quan: 0
+Clk: 35
+Nuevos: []
+Listos: []
+Block: []
+Ejec: Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoA                      2                             89                            2                             2                             5                             5                             4                             4                             19                            1                             true              
+Term: [{
+Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
+            ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+}]
+
+**************************************************************************************************************************************************
+ProcesoA paso de ejecutando a terminado
+
+Cpu ocupadado Quitando Recursos al ProcesoA 'TFP'  
+
+Quan: 0
+Clk: 36
 Nuevos: []
 Listos: []
 Block: []
 Ejec: null
 Term: [{
 Proceso                       Tiempo Arribo                 Prioridad                     Rafagas de CPU                Rafagas Actuales              Duración Rafaga               Tiempo Actual Rafaga          Duración Bloqueo              Tiempo Bloqueado              Tiempo en Listo               Suma TCP                      Recursos                      
-            ProcesoD                      5                             83                            2                             2                             2                             2                             2                             2                             2                             0                             true              
-            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             2                             0                             true              
-            ProcesoA                      2                             89                            1                             1                             5                             5                             4                             0                             19                            1                             true              
+            ProcesoD                      5                             95                            2                             2                             2                             2                             2                             2                             1                             0                             true              
+            ProcesoB                      3                             83                            4                             4                             2                             2                             3                             3                             0                             0                             true              
             ProcesoC                      4                             12                            3                             3                             3                             3                             3                             3                             10                            2                             true              
+            ProcesoA                      2                             89                            2                             2                             5                             5                             4                             4                             19                            1                             true              
 }]
 
-ProcesoD Tiempo De Retorno = 10.0  Tiempo de Retorno Normalizado = 2.5
-ProcesoB Tiempo De Retorno = 21.0  Tiempo de Retorno Normalizado = 2.625
-ProcesoA Tiempo De Retorno = 27.0  Tiempo de Retorno Normalizado = 5.4
+ProcesoD Tiempo De Retorno = 9.0  Tiempo de Retorno Normalizado = 2.25
+ProcesoB Tiempo De Retorno = 19.0  Tiempo de Retorno Normalizado = 2.375
 ProcesoC Tiempo De Retorno = 29.0  Tiempo de Retorno Normalizado = 3.2222222222222223
+ProcesoA Tiempo De Retorno = 36.0  Tiempo de Retorno Normalizado = 3.6
 
 
-Tiempo De Retorno Por Tanda = 28.0
- Tiempo Medio De Retorno Por Tanda = 7.25
+Tiempo De Retorno Por Tanda = 34.0
+ Tiempo Medio De Retorno Por Tanda = 9.0
 
 
-T Cpu Ocioso: 4.0
+T Cpu Ocioso: 5.0
 
-T Cpu UsoxProcesos: 26.0
+T Cpu UsoxProcesos: 31.0
 
 T Cpu UsoxSo: 11.0
 
