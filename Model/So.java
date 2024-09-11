@@ -21,11 +21,7 @@ public class So {
     private static int tcp;
     private static int q;
     private static int contquantum = 0;
-    
-    private static boolean bitCambioDeContexto = false;
-    private static boolean bitDarRecursosAProceso = false;
-    private static boolean bitQuitarRecursosAProceos = false;
-    
+      
     private So() {    	
     	So.Listos = new LinkedList<Proceso>();
     	So.Nuevos = new LinkedList<Proceso>();
@@ -54,9 +50,6 @@ public class So {
         tcp = 0;
         q = 0;
         contquantum = 0;
-        bitCambioDeContexto = false;
-        bitDarRecursosAProceso = false;
-        bitQuitarRecursosAProceos = false;
         politica = null;  
     }
     
@@ -73,7 +66,6 @@ public class So {
 	public static void setPolitica(Politica politica) {
 		So.politica = politica;
 	}
-	
 	public static int getTimeRetornoXtanda() {
 		return timeRetornoXtanda;
 	}
@@ -131,29 +123,9 @@ public class So {
 	public static void setCLK(int CLK) {
 		 So.CLK=CLK;
 	}
-	public static boolean isBitCambioDeContexto() {
-		return bitCambioDeContexto;
-	}
-	public static void setBitCambioDeContexto(boolean bitCambioDeContexto) {
-		So.bitCambioDeContexto = bitCambioDeContexto;
-	}
-	public static boolean isBitDarRecursosAProceso() {
-		return bitDarRecursosAProceso;
-	}
-	public static void setBitDarRecursosAProceso(boolean bitDarRecursosAProceso) {
-		So.bitDarRecursosAProceso = bitDarRecursosAProceso;
-	}
-	public static boolean isBitQuitarRecursosAProceos() {
-		return bitQuitarRecursosAProceos;
-	}
-	public static void setBitQuitarRecursosAProceos(boolean bitQuitarRecursosAProceos) {
-		So.bitQuitarRecursosAProceos = bitQuitarRecursosAProceos;
-	}
-
 	public static int getContquantum() {
 		return contquantum;
 	}
-
 	public static void setContquantum(int contquantum) {
 		So.contquantum = contquantum;
 	}

@@ -12,6 +12,8 @@ public class Ejecutando extends Estados {
 
 	@Override
 	public void EjecutandoAListo() {
+		Cpu.settUsadaPorSO(Cpu.gettUsadaPorSO()+So.getTcp());//incremento el contador GLOBAL de CPU usada por SO
+		this.proceso.INCREMSumaDeTCPDesdeQueFuiCreado();//incremento el contador de Sumatoria de cambios de contexto X proceso (Local)
 		Cpu.setEjecutando(null);
 		So.getListos().offer(this.proceso);
 		proceso.cambiarEstado(new Listo(this.proceso));
@@ -29,8 +31,7 @@ public class Ejecutando extends Estados {
 		Cpu.setEjecutando(null);
 		So.getTerminados().offer(this.proceso);
 		proceso.cambiarEstado(new Terminado(this.proceso));
-		
-		So.setBitQuitarRecursosAProceos(true);//si un proceso realiza este cambio de estado entonces debe sumar al tiempo de cpu usado por So un TFP de tiempo, esta llave le permite al Auditor hacerlo
+		Cpu.settUsadaPorSO(Cpu.gettUsadaPorSO()+So.getTfp());//incrementa el contador global de Cpu usado X SO
 		inicioController.pv("Cpu ocupadado Quitando Recursos al "+ this.proceso.getId()+" 'TFP' "+" \n");
 	}
 

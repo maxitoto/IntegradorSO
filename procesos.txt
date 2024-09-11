@@ -1,3 +1,4 @@
-Proceso8,2,1,5,1,89
-Proceso15,3,4,2,1,83
-Proceso2,4,3,3,3,12
+ProcesoA,2,1,5,4,89
+ProcesoB,3,4,2,3,83
+ProcesoC,4,3,3,3,12
+ProcesoD,5,2,2,2,83

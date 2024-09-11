@@ -11,8 +11,6 @@ public class SRTN extends Politica{
 	@Override
 	public boolean cuandoPasarDeEjecutandoAListo() {
 		if(Cpu.getEjecutando()!=null && !So.getListos().isEmpty() && (So.getListos().peek().getDuracionDeCadaRafaga()-So.getListos().peek().getTiempoActualDeRafaga())<(Cpu.getEjecutando().getDuracionDeCadaRafaga()-Cpu.getEjecutando().getTiempoActualDeRafaga())) {
-			So.setBitCambioDeContexto(true);//permito que se incremente el contador de Cpu usado por So
-			Cpu.getEjecutando().INCREMSumaDeTCPDesdeQueFuiCreado();
 			inicioController.pv( Cpu.getEjecutando().getId()+" pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque "+So.getListos().peek().getId()+" tiene una rafaga restante más corta "+" \n");
 			Cpu.getEjecutando().EjecutandoAListo();
 			return true;

@@ -16,8 +16,8 @@ public class Nuevo extends Estados {
 		So.getNuevos().remove(this.proceso);
 		proceso.cambiarEstado(new Listo(this.proceso));
 		
-		So.setBitDarRecursosAProceso(true);
-		inicioController.pv("Cpu ocupadado Asignando Recursos al "+ this.proceso.getId()+" 'TIP'"+" \n");
+		Cpu.settUsadaPorSO(Cpu.gettUsadaPorSO()+So.getTip());//incremento el contador global de CPU usado X So
+		inicioController.pv("Cpu ocupadado Asignando Recursos al "+ this.proceso.getId()+" 'TIP' "+" \n");
 	}
 
 	@Override

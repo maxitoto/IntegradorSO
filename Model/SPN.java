@@ -21,8 +21,6 @@ public class SPN extends Politica {
 	@Override
 	public boolean cuandoPasarDeEjecutandoAListo() {
 		if(Cpu.getEjecutando()!=null && !So.getListos().isEmpty() && So.getListos().peek().getDuracionDeCadaRafaga()<Cpu.getEjecutando().getDuracionDeCadaRafaga()) {
-			So.setBitCambioDeContexto(true);//permito que se incremente el contador de Cpu usado por So
-			Cpu.getEjecutando().INCREMSumaDeTCPDesdeQueFuiCreado();
 			inicioController.pv( Cpu.getEjecutando().getId()+" pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque "+So.getListos().peek().getId()+" tiene una rafaga más corta "+" \n");
 			Cpu.getEjecutando().EjecutandoAListo();
 			return true;

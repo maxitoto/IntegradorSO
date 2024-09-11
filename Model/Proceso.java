@@ -21,10 +21,10 @@ public class Proceso {
     //contabilidad durante y despues de simular
 	private double timeRetorno = 0;
     private double timeRetornoNormalizado = 0;
-    private double timeEnListo = 0;
+    private int timeEnListo = 0;
     
     //tiempo de cambios de contexte desde que fue creado
-    private int SumaDeTCPDesdeQueFuiCreado;
+    private int SumaDeTCPDesdeQueFuiCreado = 0;
     
     //bit x proceso para saber si me dieron los recursos, para no contar el estado de listo, por lo menos la primera vez va a estar en falso.
     private boolean tengoLosRecursos = false;
@@ -65,8 +65,6 @@ public class Proceso {
 	            ", tiempoActualDeRafaga=" + tiempoActualDeRafaga + '\n' +
 	            ", tiempoEnEstadoBloqueado=" + tiempoEnEstadoBloqueado + '\n' +
 	            ", timeRetorno=" + timeRetorno + '\n' +
-	            ", timeRetornoNormalizado=" + timeRetornoNormalizado + '\n' +
-	            ", timeEnListo=" + timeEnListo + '\n' +
 	            ", SumaDeTCPDesdeQueFuiCreado=" + SumaDeTCPDesdeQueFuiCreado + '\n' +
 	            ", tengoLosRecursos=" + tengoLosRecursos + '\n' +
 	            '}';
@@ -139,15 +137,15 @@ public class Proceso {
 	public void setTimeRetornoNormalizado(double timeRetornoNormalizado) {
 		this.timeRetornoNormalizado = timeRetornoNormalizado;
 	}
-	public double getTimeEnListo() {
+	public int getTimeEnListo() {
 		return timeEnListo;
 	}
-	public void setTimeEnListo(double timeEnListo) {
+	public void setTimeEnListo(int timeEnListo) {
 		this.timeEnListo = timeEnListo;
 	}
 
 	public void INCREMSumaDeTCPDesdeQueFuiCreado() {
-		 SumaDeTCPDesdeQueFuiCreado=+So.getTcp();
+		 SumaDeTCPDesdeQueFuiCreado=SumaDeTCPDesdeQueFuiCreado+So.getTcp();
 	}
 	
 	public int getSumaDeTCPDesdeQueFuiCreado() {

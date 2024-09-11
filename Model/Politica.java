@@ -7,24 +7,21 @@ import Controller.inicioController;
 
 public abstract class Politica  {
 
-	public boolean cuandoPasarDeListoAEjecutando() {
+	public void  cuandoPasarDeListoAEjecutando() {
 		if(Cpu.getEjecutando()==null && !So.getListos().isEmpty() && So.getListos().peek().isTengoLosRecursos()) {
 					inicioController.pv(So.getListos().peek().getId()+" paso de listo  a ejectuando"+"\n");
 					So.getListos().peek().ListoAEjecutando();
-					return true;
-				}else {return false;}
+			}
 		}
 	
 	public abstract boolean cuandoPasarDeEjecutandoAListo();
 	
-	public  boolean cuandoPasarDeEjecutandoABloqueado() {
+	public  void cuandoPasarDeEjecutandoABloqueado() {
 		if(Cpu.getEjecutando()!=null && Cpu.getEjecutando().getTiempoActualDeRafaga()==Cpu.getEjecutando().getDuracionDeCadaRafaga()) {
 			inicioController.pv(Cpu.getEjecutando().getId()+" paso de  ejectuando a bloqueado"+"\n");				
 				Cpu.getEjecutando().setTiempoEnEstadoBloqueado(0);
 				Cpu.getEjecutando().EjecutandoABloqueado();
-			return true;
 		}
-		return false;
 	}
 	
 	public boolean cuandoPasarDeBloqueadoAListo() {
@@ -71,13 +68,11 @@ public abstract class Politica  {
 		return false;
 	}
 	
-	public boolean cuandoPasarDeEjecutandoATerminado() {
+	public void cuandoPasarDeEjecutandoATerminado() {
 		if(Cpu.getEjecutando()!=null && Cpu.getEjecutando().getContRafagasActuales()==Cpu.getEjecutando().getRafagasDeCpuParaTerminar()) {
 				inicioController.pv(Cpu.getEjecutando().getId()+" paso de ejecutando a terminado"+"\n");
 				Cpu.getEjecutando().EjecutandoATerminado();		
-				return true;
 		}
-		return false;
 	}
 	
 	public abstract void ordenar();

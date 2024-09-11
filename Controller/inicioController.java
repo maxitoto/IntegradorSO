@@ -32,15 +32,16 @@ public class inicioController implements ActionListener {
     public void iniciar() {
         this.iv.setVisible(true);
     }
-    public void actualizarProgress(boolean reset) {
-    	if (reset) {
-    		double progress =0;
-            SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
-    	}
-    	else {
-        double progress = (double) (So.getTerminados().size() / datosDeDocumento.size()) * 100;
-        SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
-    	}
+    public void actualizarProgress() {
+    	Thread t1 = new Thread() {
+    		public void run() {
+    			if(So.getTerminados()!=null && datosDeDocumento!=null) {
+    				double progress = (double) (So.getTerminados().size() / datosDeDocumento.size()) * 100;
+    		        SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
+    			}else {SwingUtilities.invokeLater(() -> iv.setProgressBar(0.0));}
+    		}
+    	};
+    	t1.start();
     }
     private void buscarRutas(ActionEvent e) {
         Object source = e.getSource();
@@ -151,15 +152,13 @@ public class inicioController implements ActionListener {
             // Formateo para los encabezados
             formatted.append(String.format("%-" + spacing + "s", "Proceso"));
             formatted.append(String.format("%-" + spacing + "s", "Tiempo Arribo"));
+            formatted.append(String.format("%-" + spacing + "s", "Prioridad"));          
             formatted.append(String.format("%-" + spacing + "s", "Rafagas de CPU"));
+            formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));                  
             formatted.append(String.format("%-" + spacing + "s", "Duración Rafaga"));
-            formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
-            formatted.append(String.format("%-" + spacing + "s", "Prioridad"));
-            formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));
             formatted.append(String.format("%-" + spacing + "s", "Tiempo Actual Rafaga"));
+            formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
             formatted.append(String.format("%-" + spacing + "s", "Tiempo Bloqueado"));
-            formatted.append(String.format("%-" + spacing + "s", "Tiempo Retorno"));
-            formatted.append(String.format("%-" + spacing + "s", "Retorno Normalizado"));
             formatted.append(String.format("%-" + spacing + "s", "Tiempo en Listo"));
             formatted.append(String.format("%-" + spacing + "s", "Suma TCP"));
             formatted.append(String.format("%-" + spacing + "s", "Recursos"));
@@ -169,15 +168,13 @@ public class inicioController implements ActionListener {
             for (Proceso p : processes) {
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getId()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoDeArribo()));
-                formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
-                formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
-                formatted.append(String.format("%-" + spacing + "s","            " +  p.getDuracionDePeriodoEnBloqueado()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getPrioridad()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getContRafagasActuales()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
                 formatted.append(String.format("%-" + spacing + "s","            " +  p.getTiempoActualDeRafaga()));
+                formatted.append(String.format("%-" + spacing + "s","            " +  p.getDuracionDePeriodoEnBloqueado()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoEnEstadoBloqueado()));
-                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetorno()));
-                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetornoNormalizado()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeEnListo()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.getSumaDeTCPDesdeQueFuiCreado()));
                 formatted.append(String.format("%-" + spacing + "s", "            " + p.isTengoLosRecursos()));
@@ -199,15 +196,13 @@ public class inicioController implements ActionListener {
      // Formateo para los encabezados
         formatted.append(String.format("%-" + spacing + "s", "Proceso"));
         formatted.append(String.format("%-" + spacing + "s", "Tiempo Arribo"));
+        formatted.append(String.format("%-" + spacing + "s", "Prioridad"));          
         formatted.append(String.format("%-" + spacing + "s", "Rafagas de CPU"));
+        formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));                  
         formatted.append(String.format("%-" + spacing + "s", "Duración Rafaga"));
-        formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
-        formatted.append(String.format("%-" + spacing + "s", "Prioridad"));
-        formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));
         formatted.append(String.format("%-" + spacing + "s", "Tiempo Actual Rafaga"));
+        formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
         formatted.append(String.format("%-" + spacing + "s", "Tiempo Bloqueado"));
-        formatted.append(String.format("%-" + spacing + "s", "Tiempo Retorno"));
-        formatted.append(String.format("%-" + spacing + "s", "Retorno Normalizado"));
         formatted.append(String.format("%-" + spacing + "s", "Tiempo en Listo"));
         formatted.append(String.format("%-" + spacing + "s", "Suma TCP"));
         formatted.append(String.format("%-" + spacing + "s", "Recursos"));
@@ -216,26 +211,24 @@ public class inicioController implements ActionListener {
         // Formateo para un solo proceso
         formatted.append(String.format("%-" + spacing + "s", "            " + p.getId()));
         formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoDeArribo()));
-        formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
-        formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
-        formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDePeriodoEnBloqueado()));
         formatted.append(String.format("%-" + spacing + "s", "            " + p.getPrioridad()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
         formatted.append(String.format("%-" + spacing + "s", "            " + p.getContRafagasActuales()));
-        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoActualDeRafaga()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
+        formatted.append(String.format("%-" + spacing + "s","            " +  p.getTiempoActualDeRafaga()));
+        formatted.append(String.format("%-" + spacing + "s","            " +  p.getDuracionDePeriodoEnBloqueado()));
         formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoEnEstadoBloqueado()));
-        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetorno()));
-        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeRetornoNormalizado()));
         formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeEnListo()));
-        formatted.append(String.format("%-" + spacing + "s","            " +  p.getSumaDeTCPDesdeQueFuiCreado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getSumaDeTCPDesdeQueFuiCreado()));
         formatted.append(String.format("%-" + spacing + "s", "            " + p.isTengoLosRecursos()));
         
         return formatted.toString();
     }
     public static void registrarEstado() {
-        Proceso ejec = So.getCpu().getEjecutando();
+        Proceso ejec = Cpu.getEjecutando();
         String logEntry = 
             "Quan: " + So.getContquantum() + "\n" +
-            "Clk: " + (So.CLK - 1) + "\n" +
+            "Clk: " + So.CLK+ "\n" +
             "Nuevos: " + formatProcessList((List)So.getNuevos()) + "\n" +
             "Listos: " + formatProcessList((List)So.getListos()) + "\n" +
             "Block: " + formatProcessList((List)So.getBloqueados()) + "\n" +
@@ -251,25 +244,23 @@ public class inicioController implements ActionListener {
         if (e.getSource() == iv.getBtnSimular()) {
             if (CEV.validarTextField()) {
                 leerArchivoTxt();
-                if (this.so != null) { reset(); } else { this.so = So.getSo(); }
+                if (inicioController.so != null) { reset(); } else { inicioController.so = So.getSo(); }
                 setOS();
                 cargarProcesosEnNuevos();
                 textCont++;
-                actualizarProgress(true);       
                 inicioController.pv("Politica: " + So.getPolitica().toString() + "\n");
                 while (So.getTerminados().size() < datosDeDocumento.size()) {
-                    So.CLK++;       
-                    registrarEstado();
                     Cpu.getAuditor().aumentarContadores();
-
-                    if (So.getPolitica().cuandoPasarDeEjecutandoATerminado()) {}
-                    if (So.getPolitica().cuandoPasarDeEjecutandoABloqueado()) {}
+                    registrarEstado();
+                    inicioController.pv("**************************************************************************************************************************************************");
+                    So.CLK++;         
+                    So.getPolitica().cuandoPasarDeEjecutandoATerminado();
+                    So.getPolitica().cuandoPasarDeEjecutandoABloqueado();
                     if (So.getPolitica().cuandoPasarDeEjecutandoAListo()) { So.getPolitica().ordenar(); }
                     if (So.getPolitica().cuandoPasarDeBloqueadoAListo()) { So.getPolitica().ordenar(); }
                     if (So.getPolitica().cuandoPasarDeNuevoAListo()) { So.getPolitica().ordenar(); }
-                    if (So.getPolitica().cuandoPasarDeListoAEjecutando()) {}
-                    
-                    actualizarProgress(false);
+                    So.getPolitica().cuandoPasarDeListoAEjecutando();
+                    actualizarProgress();
                 }
                 registrarEstado();
 
@@ -282,7 +273,7 @@ public class inicioController implements ActionListener {
                 }
                 inicioController.pv("\nT Cpu Ocioso: " + Cpu.getTimeOcioso() + "\n");
                 inicioController.pv("T Cpu UsoxProcesos: " + Cpu.getTimeUsoXprocesos() + "\n");
-                inicioController.pv("T Cpu UsoxSo: " + Cpu.gettUsadaPorSO() + "\n");
+                inicioController.pv("T Cpu UsoxSo: " + Cpu.gettUsadaPorSO() + "\n");                
              }
         }
     }
