@@ -1,4 +1,5 @@
-ProcesoA,2,2,5,4,89
-ProcesoB,3,4,2,3,83
-ProcesoC,4,3,3,3,12
-ProcesoD,5,2,2,2,95
+ProcesoA,0,1,3,0,1
+ProcesoB,2,1,6,0,2
+ProcesoC,4,1,4,0,3
+ProcesoD,6,1,5,0,4
+ProcesoE,8,1,2,0,5

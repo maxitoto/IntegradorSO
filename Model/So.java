@@ -34,6 +34,7 @@ public class So {
     	So.tfp=0;//se sumara al tiempo final de cada proceso una unica vez "se puede hacer cuando el simulador termine"
     	So.tcp=0;//se sumara al contador de la cpu siendo usada por el So
     	So.q=0;
+    	So.contquantum=0;
     }
 
     public static void reset() {

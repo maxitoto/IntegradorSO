@@ -250,17 +250,20 @@ public class inicioController implements ActionListener {
                 textCont++;
                 inicioController.pv("Politica: " + So.getPolitica().toString() + "\n");
                 while (So.getTerminados().size() < datosDeDocumento.size()) {
-                    Cpu.getAuditor().aumentarContadores();
-                    registrarEstado();
-                    inicioController.pv("**************************************************************************************************************************************************");
-                    So.CLK++;         
+                   
+                	
                     So.getPolitica().cuandoPasarDeEjecutandoATerminado();
                     So.getPolitica().cuandoPasarDeEjecutandoABloqueado();
                     if (So.getPolitica().cuandoPasarDeEjecutandoAListo()) { So.getPolitica().ordenar(); }
                     if (So.getPolitica().cuandoPasarDeBloqueadoAListo()) { So.getPolitica().ordenar(); }
                     if (So.getPolitica().cuandoPasarDeNuevoAListo()) { So.getPolitica().ordenar(); }
                     So.getPolitica().cuandoPasarDeListoAEjecutando();
-                    actualizarProgress();
+   
+                    actualizarProgress();    
+                    Cpu.getAuditor().aumentarContadores();
+                    registrarEstado();
+                    inicioController.pv("**************************************************************************************************************************************************");               
+                    So.CLK++; 
                 }
                 registrarEstado();
 

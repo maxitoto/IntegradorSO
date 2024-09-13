@@ -4,11 +4,12 @@ import java.util.*;
 import Controller.inicioController;
 
 public class Auditor {
-
 	public void aumentarContadores() {
 		
-		if(So.getContquantum()==So.getQ()) {So.setContquantum(0);}else {So.setContquantum(So.getContquantum()+1);}
-		         
+		if(So.getPolitica().toString()=="Round Robin") {
+			if(So.getContquantum()==So.getQ()) {So.setContquantum(0); So.setCLK(So.getCLK()-1); return;}else {So.setContquantum(So.getContquantum()+1);}
+		}
+		
 		if(So.getCpu().getEjecutando()!=null) {//incrementa el tiempo de la rafaga actual del proceso en estado de ejecucion.
 			Proceso p = So.getCpu().getEjecutando();
 			p.setTiempoActualDeRafaga(p.getTiempoActualDeRafaga()+1);//aumento la rafaga actual, para luego comparar con el limite (duracion de la rafaga)
@@ -54,14 +55,13 @@ public class Auditor {
 	                            	So.getTfp(); // tiempo final de procesamiento
 
 	        	p.setTimeRetorno(tiempoRetorno);
-	        
 	        	double tiempoRetornoNormalizado = tiempoRetorno / (p.getDuracionDeCadaRafaga()*p.getRafagasDeCpuParaTerminar());
 
 	        	p.setTimeRetornoNormalizado(tiempoRetornoNormalizado);
 	        
 	        	// Añade los resultados a la lista
 	        	listaResultados.add(
-	        		p.getId() + " Tiempo De Retorno = "+p.getTimeRetorno() +"  Tiempo de Retorno Normalizado = "+p.getTimeRetornoNormalizado()   		
+	        		p.getId() + " Tiempo De Retorno = "+p.getTimeRetorno() +" Tiempo de Retorno Normalizado = "+p.getTimeRetornoNormalizado() 
 	        		);
 	    	}
 	    	listaResultados.add("\n" );
@@ -71,36 +71,26 @@ public class Auditor {
 	
 	public List<String> contabilidadFinalXTanda() {
 		 List<String> listaResultados = new ArrayList<>();
-		int menorTiempoDeArribo=1000;
-		Proceso procesoConMenorTiempoDeArribo=null;
-		double sumatoriasDeLosTR = 0;
+		double mediaNormalizadaXtanda = 0;
+		double retornoXtanda= 0;
+		double medioXtanda = 0;
+		
 		if(!So.getTerminados().isEmpty()) {
-			for (Proceso p : So.getTerminados()) {
-				if(menorTiempoDeArribo>p.getTiempoDeArribo()) {//para el tiempo deretorno por tanda
-					menorTiempoDeArribo=p.getTiempoDeArribo();
-					procesoConMenorTiempoDeArribo=p;
-				}
-				
-				sumatoriasDeLosTR=+p.getTimeRetorno();//para el tiempo medio de retorno por tanda
-				
-			}
-		
-			double tiempoMedioDeRetornoXtanda = sumatoriasDeLosTR/So.getTerminados().size();
-			double tiempoRetornoXtanda =So.getCLK()-procesoConMenorTiempoDeArribo.getTiempoDeArribo(); 
-			
-			// Añade los resultados a la lista
-        	listaResultados.add(
-        		"Tiempo De Retorno Por Tanda = "+tiempoRetornoXtanda+"\n"+
-        		" Tiempo Medio De Retorno Por Tanda = "+tiempoMedioDeRetornoXtanda+"\n"
-        		);
-			
-		}
-		
-		
-		
+		          for (Proceso p : So.getTerminados()) {
+			          mediaNormalizadaXtanda=mediaNormalizadaXtanda+p.getTimeRetornoNormalizado();
+			          retornoXtanda=retornoXtanda+p.getTimeRetorno();
+		          }	
+		          
+		          mediaNormalizadaXtanda=mediaNormalizadaXtanda/So.getTerminados().size();
+		          medioXtanda=retornoXtanda/So.getTerminados().size();
+		          
+		          listaResultados.add(
+				          "Timepo de retorno por Tanda = "+retornoXtanda+"\n"+
+				        		 "Tiempo medio de retorno por tanda = "+medioXtanda+"\n"+
+				        		  		" Tiempo medio de Retorno Normalizado por tanda = "+mediaNormalizadaXtanda+"\n"
+				          );	          
+	   }
 		return listaResultados;
-		
-		
 	}
-
+	
 }

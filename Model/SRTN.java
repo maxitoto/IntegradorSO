@@ -10,10 +10,14 @@ public class SRTN extends Politica{
 
 	@Override
 	public boolean cuandoPasarDeEjecutandoAListo() {
-		if(Cpu.getEjecutando()!=null && !So.getListos().isEmpty() && (So.getListos().peek().getDuracionDeCadaRafaga()-So.getListos().peek().getTiempoActualDeRafaga())<(Cpu.getEjecutando().getDuracionDeCadaRafaga()-Cpu.getEjecutando().getTiempoActualDeRafaga())) {
-			inicioController.pv( Cpu.getEjecutando().getId()+" pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque "+So.getListos().peek().getId()+" tiene una rafaga restante más corta "+" \n");
-			Cpu.getEjecutando().EjecutandoAListo();
-			return true;
+		if(Cpu.getEjecutando()!=null && !So.getListos().isEmpty() && (So.getListos().peek().getDuracionDeCadaRafaga()-So.getListos().peek().getTiempoActualDeRafaga())<(Cpu.getEjecutando().getDuracionDeCadaRafaga()-Cpu.getEjecutando().getTiempoActualDeRafaga()) && So.getListos().peek().isTengoLosRecursos()) {
+			if(So.getListos().peek().isTengoLosRecursos()) {
+				inicioController.pv( Cpu.getEjecutando().getId()+" pasa de ejecutando a listo (Cambio De Contexto) 'TCP' porque "+So.getListos().peek().getId()+" tiene una rafaga restante más corta "+" \n");
+				Cpu.getEjecutando().EjecutandoAListo();
+				return true;
+			}else {
+				inicioController.pv( Cpu.getEjecutando().getId()+" NO pasará de ejecutando a listo porque el "+So.getListos().peek().getId()+" Aún no tiene los Recursos " +" \n");
+				}
 		}
 		return false;
 	}
