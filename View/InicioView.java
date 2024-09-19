@@ -32,6 +32,7 @@ public class InicioView extends JFrame {
 	private JTextField Quantumtext;
 
 	public InicioView() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setType(Type.UTILITY);
 		setLocation(new Point(500, 500));
 		setSize(new Dimension(450, 300));
