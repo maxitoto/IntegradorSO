@@ -9,26 +9,19 @@ public class Listo extends Estados {
 	}
 
 	@Override
-	public void NuevoAListo() {}
-
-	@Override
-	public void ListoAEjecutando() {
-		Cpu cpu = Cpu.getCpu();
-		
-		this.proceso.cambiarEstado(new Ejecutando(this.proceso));
-		
-		if(cpu.getEjecutando()==null){
-			cpu.setEjecutando(this.proceso);
-		}
-		
+	public void ListoAEjecutando() {		
+		Cpu.setEjecutando(null);
+		Cpu.setEjecutando(So.getListos().poll());
+		So.getListos().remove(this.proceso);
+		proceso.cambiarEstado(new Ejecutando(this.proceso));
 	}
 	
 	@Override
+	public void NuevoAListo() {}
+	@Override
 	public void EjecutandoAListo() {}
-
 	@Override
 	public void EjecutandoABloqueado() {}
-
 	@Override
 	public void EjecutandoATerminado() {}
 

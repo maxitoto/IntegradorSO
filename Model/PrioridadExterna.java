@@ -1,21 +1,43 @@
 package Model;
 
 import java.util.*;
-import Model.*; 
 
-public class PrioridadExterna extends Politica {
+import Controller.inicioController;
 
+public class PrioridadExterna extends Politica{
+	
 	@Override
-	public void OrdenamientoSegúnPolitica(Queue<Proceso> colaDeProcesos) {//una vez encolado se reordena la cola de listos en orden de proridades desde el 100 - 1
-		PriorityQueue<Proceso> queue = new PriorityQueue<>((Proceso a, Proceso b) -> Integer.compare(b.getPrioridad(), a.getPrioridad()));
-	    queue.addAll(So.getNuevos());
-	    So.setNuevos(queue);
-	}
-
-	@Override
-	public void aplicarPolitica() {
-		// TODO Auto-generated method stub
+	public void ordenar() {
+		Collections.sort((List) So.getListos(), new Comparator<Proceso>() {
+	        @Override
+	        public int compare(Proceso p1, Proceso p2) {
+	            return Integer.compare(p2.getPrioridad(), p1.getPrioridad());
+	        }
+	    });
 		
 	}
+
+	@Override
+	public boolean cuandoPasarDeEjecutandoAListo() {
+		if(Cpu.getEjecutando()!=null && !So.getListos().isEmpty() && So.getListos().peek().getPrioridad()>Cpu.getEjecutando().getPrioridad()) {
+			if(So.getListos().peek().isTengoLosRecursos()) {
+				inicioController.pv( Cpu.getEjecutando().getId()+" pasa de ejecutando a listo (Cambio De Contexto) 'TCP' por Prioridad con el "+So.getListos().peek().getId()+" \n");
+				Cpu.getEjecutando().EjecutandoAListo();
+				return true;	
+			}else {
+				inicioController.pv( Cpu.getEjecutando().getId()+" NO pasará de ejecutando a listo porque el "+So.getListos().peek().getId()+" Aún no tiene los Recursos " +" \n");
+				}				
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Prioridad Externa";
+	}
 }
+
+	
+
 	

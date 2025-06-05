@@ -1,19 +1,32 @@
 package Model;
 import java.util.Queue;
 
-import Model.*;
 
-public class RoundRobin extends Politica {
+import Controller.inicioController;
 
-	@Override
-	public void OrdenamientoSegúnPolitica(Queue<Proceso> colaDeProcesos) {}//igual que FCFS
+public class RoundRobin extends Politica{
 
 	@Override
-	public void aplicarPolitica() {
-		// TODO Auto-generated method stub
-		
+	public boolean cuandoPasarDeEjecutandoAListo() {
+		if(Cpu.getEjecutando()!=null && 	!So.getListos().isEmpty() &&So.getQ()==So.getContquantum()) {
+				inicioController.pv( Cpu.getEjecutando().getId()+" pasa de ejecutando a listo por Quamtum "+" \n");
+				Cpu.getEjecutando().EjecutandoAListo();
+				return true;
+			}
+		return false;
 	}
 
 
-	
+	@Override
+	public void ordenar() {
+		// fifo
+		
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Round Robin";
+	}
+
 }

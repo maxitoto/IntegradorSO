@@ -3,54 +3,66 @@ package Model;
 
 public class Cpu {
 	   private static Cpu cpu;
-	   private Proceso ejecutando;
-	   private double timeUso = 0;
-	   private double timeUsoXprocesos = 0;
-	   private double tUsadaPorSO = 0;
+
+	   private static Proceso ejecutando;
+	   private static double timeOcioso = 0;
+	   private static double timeUsoXprocesos = 0;
+	   private static double tUsadaPorSO = 0;
 	   
+	   private static Auditor auditor = new Auditor();
 	   
+	   private Cpu() {}
+	   
+	   public static Cpu resetCpu() {
+		    Cpu.setEjecutando(null);
+		    Cpu.setTimeOcioso(0);
+		    Cpu.setTimeUsoXprocesos(0);
+		    Cpu.settUsadaPorSO(0);
+		    Cpu.setAuditor(new Auditor());
+		    return Cpu.cpu;
+		}
+	   
+	   public static Cpu getCpu() {
+	           if(Cpu.cpu == null) {
+	        	   Cpu.cpu = new Cpu();
+	           	}     
+	           return Cpu.cpu;
+	    }	   
 	
-    public Proceso getEjecutando() {
+    public static Proceso getEjecutando() {
 		return ejecutando;
 	}
-
-	public void setEjecutando(Proceso ejecutando) {
-		this.ejecutando = ejecutando;
+	public static void setEjecutando(Proceso ejecutando) {
+		Cpu.ejecutando = ejecutando;
 	}
-
-	public double getTimeUso() {
-		return timeUso;
+	public static double getTimeOcioso() {
+		return timeOcioso;
 	}
-
-	public void setTimeUso(double timeUso) {
-		this.timeUso = timeUso;
+	public static void setTimeOcioso(double timeOcioso) {
+		Cpu.timeOcioso = timeOcioso;
 	}
-
-	public double getTimeUsoXprocesos() {
+	public static double getTimeUsoXprocesos() {
 		return timeUsoXprocesos;
 	}
-
-	public void setTimeUsoXprocesos(double timeUsoXprocesos) {
-		this.timeUsoXprocesos = timeUsoXprocesos;
+	public static void setTimeUsoXprocesos(double timeUsoXprocesos) {
+		Cpu.timeUsoXprocesos = timeUsoXprocesos;
 	}
-
-	public double gettUsadaPorSO() {
+	public static double gettUsadaPorSO() {
 		return tUsadaPorSO;
 	}
-
-	public void settUsadaPorSO(double tUsadaPorSO) {
-		this.tUsadaPorSO = tUsadaPorSO;
+	public static void settUsadaPorSO(double tUsadaPorSO) {
+		Cpu.tUsadaPorSO = tUsadaPorSO;
 	}
 
-	private Cpu() {
-    }
-    
-    public static Cpu getCpu() {
-            if(cpu == null) {
-            	cpu = new Cpu();
-            }     
-            return cpu;
-    }
+	public static Auditor getAuditor() {
+		return auditor;
+	}
+
+	public static void setAuditor(Auditor auditor) {
+		Cpu.auditor = auditor;
+	}
+	
+
 
     
 }

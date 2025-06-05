@@ -2,10 +2,7 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -13,52 +10,48 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.util.*;
 import View.InicioView;
 import Model.*;
+import java.io.*;
+import javax.swing.*;
+
+public class inicioController implements ActionListener {
+    private InicioView iv;
+    private static ControllerErroresView CEV;
+    public static JFileChooser input, output;
+    private static So so;
+    private List<String> datosDeDocumento;
+    private static int textCont=0;
 
 
-public class inicioController implements ActionListener{
-	private InicioView iv;
-	private static ControllerErroresView CEV;
-	private static JFileChooser input,output;
-	private static So so;
-	
-	private static List<StringBuilder> datosDeDocumento = new ArrayList<StringBuilder>();
-	private static int indx = 0;
-	
-	public inicioController(InicioView iv) {
+    public inicioController(InicioView iv) {
+
+
         this.iv = iv;
+        this.CEV = new ControllerErroresView(iv);
         this.iv.getBtnInput().addActionListener(this);
         this.iv.getBtnOutput().addActionListener(this);
         this.iv.getBtnSimular().addActionListener(this);
-        this.so =  So.getSo();
+        datosDeDocumento = new ArrayList<String>();
     }
-
     public void iniciar() {
         this.iv.setVisible(true);
     }
-    
-    public void actualizarProgress(int procesosTerminados) {
-        Thread progressThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                double progress = (double) procesosTerminados / datosDeDocumento.size();
-                SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
-                try {
-                    Thread.sleep(1000); 
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt(); 
-                    e.printStackTrace();
-                }
-            }
-        });
-        progressThread.start();
+
+    public void actualizarProgress() {
+    	Thread t1 = new Thread() {
+    		public void run() {
+    			if(So.getTerminados()!=null && datosDeDocumento!=null) {
+    				double progress = (double) (So.getTerminados().size() / datosDeDocumento.size()) * 100;
+    		        SwingUtilities.invokeLater(() -> iv.setProgressBar(progress));
+    			}else {SwingUtilities.invokeLater(() -> iv.setProgressBar(0.0));}
+    		}
+    	};
+    	t1.start();
     }
-    
     private void buscarRutas(ActionEvent e) {
         Object source = e.getSource();
-        
+
         if (source == iv.getBtnInput()) {
             input = new JFileChooser();
-            System.out.println("Soy el botón Input");
             input.setFileSelectionMode(JFileChooser.FILES_ONLY);
             input.setFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
             int result = input.showOpenDialog(null);
@@ -66,11 +59,10 @@ public class inicioController implements ActionListener{
                 File selectedFile = input.getSelectedFile();
                 iv.getInputRutaText().setText(selectedFile.getAbsolutePath());
             }
-        } 
-        
+        }
+
         if (source == iv.getBtnOutput()) {
             output = new JFileChooser();
-            System.out.println("Soy el botón Output");
             output.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int result = output.showOpenDialog(null);
             if (result == JFileChooser.APPROVE_OPTION) {
@@ -79,8 +71,8 @@ public class inicioController implements ActionListener{
             }
         }
     }
-
     public void leerArchivoTxt() {
+    	datosDeDocumento.clear();
         try {
             File selectedFile = this.input.getSelectedFile();
             if (selectedFile == null) {
@@ -88,35 +80,32 @@ public class inicioController implements ActionListener{
             }
 
             try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
-                StringBuilder contenido = new StringBuilder();
                 String linea;
 
                 while ((linea = reader.readLine()) != null) {
-                    linea = linea.trim();  // Eliminar espacios en blanco
-                    if (linea.contains("{")) {
-                        contenido.setLength(0);  // Resetea contenido al encontrar un nuevo bloque
-                        linea = linea.replace("{", ""); // Eliminar '{'
+                    linea = linea.trim();
+                    if (!linea.isEmpty()) {
+                        // Agregamos cada línea a la cola de prioridad
+                        datosDeDocumento.add(linea);
                     }
-                    if (!linea.isEmpty() && !linea.contains("}")) {
-                        contenido.append(linea).append("\n");
-                    } else if (linea.contains("}")) {
-                        datosDeDocumento.add(new StringBuilder(contenido));  // Agregar contenido
-                    }
+
+
                 }
             }
+
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(iv, "La ruta de entrada es errónea o el archivo no se encuentra", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(iv, "Error al leer el archivo o en el formato de los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void setOS() {
     	//datos del usuario
-		this.so.setTimeXsoParaAceptarNuevosProcesos(Double.parseDouble(iv.getTIPtext().getText()));
-		this.so.setTimeXsoParaTerminarProcesos(Double.parseDouble(iv.getTFPtext().getText()));
-		this.so.settimeConmutaciónEntreprocesos(Double.parseDouble((iv.getTCPtext().getText())));
+    	So.setTip(Integer.parseInt(iv.getTIPtext().getText()));
+		So.setTfp(Integer.parseInt(iv.getTFPtext().getText()));
+		So.setTcp(Integer.parseInt((iv.getTCPtext().getText())));
 		if(iv.getQuantumtext().isVisible()) {
-			this.so.setQuantum(Double.parseDouble((iv.getQuantumtext().getText())));
-		}
+			So.setQ(Integer.parseInt((iv.getQuantumtext().getText())));
+		}else {So.setQ(0);}
 		
 		//set politica
 		if (iv.getRdbtnNewRadioButton().isSelected()) {
@@ -131,55 +120,177 @@ public class inicioController implements ActionListener{
 		    this.so.setPolitica(new SRTN());
 		} 
     }
-   
-    public void mandarANuevo() {
-		 So so = So.getSo();
-		    StringBuilder content = datosDeDocumento.get(indx);
-		    String[] datos = content.toString().trim().split("\n");
-		    
-		    if (datos.length >= 5) {
-		        try {
-		            Proceso p = new Proceso(
-		                Integer.parseInt(datos[0].trim()),  // Asegúrate de eliminar espacios en blanco
-		                Integer.parseInt(datos[1].trim()),
-		                Integer.parseInt(datos[2].trim()),
-		                Integer.parseInt(datos[3].trim()),
-		                Integer.parseInt(datos[4].trim())
-		            );
-		            so.getNuevos().offer(p);
-		        } catch (NumberFormatException e) {
-		            System.out.println("Error al convertir los datos: " + e.getMessage());
-		        }
-		    } else {
-		        System.out.println("Datos insuficientes para crear el proceso.");
-		    }
+    public void reset() {
+        So.reset();  
+        System.gc();  
+    }  
+    public void cargarProcesosEnNuevos() {
+    	for (String string : datosDeDocumento) {
+    		String[] datos = string.split(",");
+    		Proceso proceso = new Proceso(
+                    datos[0],
+                    Integer.parseInt(datos[1]),
+                    Integer.parseInt(datos[2]),
+                    Integer.parseInt(datos[3]),
+                    Integer.parseInt(datos[4]),
+                    Integer.parseInt(datos[5])
+            );
+    		So.getNuevos().offer(proceso);
 		}
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-    	CEV = new ControllerErroresView(iv);
-    	buscarRutas(e);
-        if (e.getSource() == iv.getBtnSimular()) {
-        	if(CEV.validarTextField()) {
-        		leerArchivoTxt();
-        		setOS();
-        		
-        		while(indx!=datosDeDocumento.size()){//alamcena procesos nuevos
-        			mandarANuevo();
-        			indx++;
-    			}
-        		
-        		int click = -1;
-        		while(So.getTerminados().size()==datosDeDocumento.size()) {
-        			click++;
-        			so.getPolitica().controlarCpu();
-        		}
-        		
-        		
-            }
+    	
 
-        		
-            } 
+
+    }
+    public static void pv(String texto) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getSelectedFile() + "/registro"+textCont+".txt", true))) {
+            writer.write(texto); 
+            writer.newLine(); 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+    public static String formatProcessList(List<Proceso> processes) {
+        StringBuilder formatted = new StringBuilder();
+        int spacing = 30; // Ajusta el valor del espacio para alinear correctamente
+        
+        if (processes.isEmpty()) {
+            formatted.append("[]");
+        } else {
+            formatted.append("[{\n");
+
+
+            // Formateo para los encabezados
+            formatted.append(String.format("%-" + spacing + "s", "Proceso"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Arribo"));
+            formatted.append(String.format("%-" + spacing + "s", "Prioridad"));          
+            formatted.append(String.format("%-" + spacing + "s", "Rafagas de CPU"));
+            formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));                  
+            formatted.append(String.format("%-" + spacing + "s", "Duración Rafaga"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Actual Rafaga"));
+            formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo Bloqueado"));
+            formatted.append(String.format("%-" + spacing + "s", "Tiempo en Listo"));
+            formatted.append(String.format("%-" + spacing + "s", "Suma TCP"));
+            formatted.append(String.format("%-" + spacing + "s", "Recursos"));
+            formatted.append("\n");
+
+            // Formateo para cada proceso
+            for (Proceso p : processes) {
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getId()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoDeArribo()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getPrioridad()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getContRafagasActuales()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
+                formatted.append(String.format("%-" + spacing + "s","            " +  p.getTiempoActualDeRafaga()));
+                formatted.append(String.format("%-" + spacing + "s","            " +  p.getDuracionDePeriodoEnBloqueado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoEnEstadoBloqueado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeEnListo()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.getSumaDeTCPDesdeQueFuiCreado()));
+                formatted.append(String.format("%-" + spacing + "s", "            " + p.isTengoLosRecursos()));
+                formatted.append("\n");
+            }
+
+            formatted.append("}]");
+        }
+        return formatted.toString();
+    }
+    public static String formatSingleProcess(Proceso p) {
+        if (p == null) {
+            return "null";
+        }
+        
+        StringBuilder formatted = new StringBuilder();
+        int spacing = 30; // Ajusta el valor del espacio para alinear correctamente
+        
+     // Formateo para los encabezados
+        formatted.append(String.format("%-" + spacing + "s", "Proceso"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Arribo"));
+        formatted.append(String.format("%-" + spacing + "s", "Prioridad"));          
+        formatted.append(String.format("%-" + spacing + "s", "Rafagas de CPU"));
+        formatted.append(String.format("%-" + spacing + "s", "Rafagas Actuales"));                  
+        formatted.append(String.format("%-" + spacing + "s", "Duración Rafaga"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Actual Rafaga"));
+        formatted.append(String.format("%-" + spacing + "s", "Duración Bloqueo"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo Bloqueado"));
+        formatted.append(String.format("%-" + spacing + "s", "Tiempo en Listo"));
+        formatted.append(String.format("%-" + spacing + "s", "Suma TCP"));
+        formatted.append(String.format("%-" + spacing + "s", "Recursos"));
+        formatted.append("\n");
+        
+        // Formateo para un solo proceso
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getId()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoDeArribo()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getPrioridad()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getRafagasDeCpuParaTerminar()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getContRafagasActuales()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getDuracionDeCadaRafaga()));
+        formatted.append(String.format("%-" + spacing + "s","            " +  p.getTiempoActualDeRafaga()));
+        formatted.append(String.format("%-" + spacing + "s","            " +  p.getDuracionDePeriodoEnBloqueado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTiempoEnEstadoBloqueado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getTimeEnListo()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.getSumaDeTCPDesdeQueFuiCreado()));
+        formatted.append(String.format("%-" + spacing + "s", "            " + p.isTengoLosRecursos()));
+        
+        return formatted.toString();
+    }
+    public static void registrarEstado() {
+        Proceso ejec = Cpu.getEjecutando();
+        String logEntry = 
+            "Quan: " + So.getContquantum() + "\n" +
+            "Clk: " + So.CLK+ "\n" +
+            "Nuevos: " + formatProcessList((List)So.getNuevos()) + "\n" +
+            "Listos: " + formatProcessList((List)So.getListos()) + "\n" +
+            "Block: " + formatProcessList((List)So.getBloqueados()) + "\n" +
+            "Ejec: " + formatSingleProcess(ejec) + "\n" +
+            "Term: " + formatProcessList((List)So.getTerminados()) + "\n";
+
+        pv(logEntry); 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        buscarRutas(e);
+        if (e.getSource() == iv.getBtnSimular()) {
+            if (CEV.validarTextField()) {
+                leerArchivoTxt();
+                if (inicioController.so != null) { reset(); } else { inicioController.so = So.getSo(); }
+                setOS();
+                cargarProcesosEnNuevos();
+                textCont++;
+                inicioController.pv("Politica: " + So.getPolitica().toString() + "\n");
+                while (So.getTerminados().size() < datosDeDocumento.size()) {
+                   
+                	
+                    So.getPolitica().cuandoPasarDeEjecutandoATerminado();
+                    So.getPolitica().cuandoPasarDeEjecutandoABloqueado();
+                    if (So.getPolitica().cuandoPasarDeEjecutandoAListo()) { So.getPolitica().ordenar(); }
+                    if (So.getPolitica().cuandoPasarDeBloqueadoAListo()) { So.getPolitica().ordenar(); }
+                    if (So.getPolitica().cuandoPasarDeNuevoAListo()) { So.getPolitica().ordenar(); }
+                    So.getPolitica().cuandoPasarDeListoAEjecutando();
+   
+                    actualizarProgress();    
+                    Cpu.getAuditor().aumentarContadores();
+                    registrarEstado();
+                    inicioController.pv("**************************************************************************************************************************************************");               
+                    So.CLK++; 
+                }
+                registrarEstado();
+
+                for (String string : Cpu.getAuditor().contabilidadFinalXProceso()) {
+                    inicioController.pv(string);
+                }
+                
+                for (String string : Cpu.getAuditor().contabilidadFinalXTanda()) {
+                    inicioController.pv(string);
+                }
+                inicioController.pv("\nT Cpu Ocioso: " + Cpu.getTimeOcioso() + "\n");
+                inicioController.pv("T Cpu UsoxProcesos: " + Cpu.getTimeUsoXprocesos() + "\n");
+                inicioController.pv("T Cpu UsoxSo: " + Cpu.gettUsadaPorSO() + "\n");                
+             }
+=======
+
+        }
+    }
+
 

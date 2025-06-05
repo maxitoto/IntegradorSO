@@ -8,32 +8,25 @@ public class Bloqueado extends Estados {
 		this.proceso=proceso;
 	}
 
-	@Override
-	public void NuevoAListo() {}
 
-	@Override
-	public void ListoAEjecutando() {}
-
-	@Override
-	public void EjecutandoAListo() {}
-
-	@Override
-	public void EjecutandoABloqueado() {}
-
-	@Override
-	public void EjecutandoATerminado() {}
 
 	@Override
 	public void BloqueadoAListo() {
-		So so = So.getSo();
-		this.proceso.cambiarEstado(new Listo(this.proceso));
-		So.getListos().offer(this.proceso);	
-
-		so.getPolitica().OrdenamientoSegúnPolitica(So.getListos());
+		So.getListos().offer(this.proceso);
+		So.getBloqueados().remove(this.proceso);
+		proceso.cambiarEstado(new Listo(this.proceso));
 	}
 
-
-
-
 	
+	@Override
+	public void NuevoAListo() {}
+	@Override
+	public void ListoAEjecutando() {}
+	@Override
+	public void EjecutandoAListo() {}
+	@Override
+	public void EjecutandoABloqueado() {}
+	@Override
+	public void EjecutandoATerminado() {}
+
 }

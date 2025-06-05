@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.inicioController;
+
 public class Ejecutando extends Estados {
 	
     public Proceso proceso;
@@ -9,45 +11,42 @@ public class Ejecutando extends Estados {
 	}
 
 	@Override
-	public void NuevoAListo() {}
-
-	@Override
-	public void ListoAEjecutando() {}
-
-	@Override
 	public void EjecutandoAListo() {
-		this.proceso.cambiarEstado(new Listo(this.proceso));
-		Cpu cpu = Cpu.getCpu();
-		cpu.setEjecutando(null);
-		So so = So.getSo();
+		Cpu.settUsadaPorSO(Cpu.gettUsadaPorSO()+So.getTcp());//incremento el contador GLOBAL de CPU usada por SO
+		this.proceso.INCREMSumaDeTCPDesdeQueFuiCreado();//incremento el contador de Sumatoria de cambios de contexto X proceso (Local)
+		Cpu.setEjecutando(null);
 		So.getListos().offer(this.proceso);
-		
-		so.getPolitica().OrdenamientoSegúnPolitica(So.getListos());
+		proceso.cambiarEstado(new Listo(this.proceso));
+
 	}
 
 	@Override
 	public void EjecutandoABloqueado() {
-		this.proceso.cambiarEstado(new Bloqueado(this.proceso));
-		Cpu cpu = Cpu.getCpu();
-		cpu.setEjecutando(null);
-		So so = So.getSo();
+
+		Cpu.setEjecutando(null);
 		So.getBloqueados().offer(this.proceso);
-		
+		proceso.cambiarEstado(new Bloqueado(this.proceso));
+
 	}
 
 	@Override
 	public void EjecutandoATerminado() {
-		this.proceso.cambiarEstado(new Terminado(this.proceso));
-		Cpu cpu = Cpu.getCpu();
-		cpu.setEjecutando(null);
-		So so = So.getSo();
+
+		Cpu.setEjecutando(null);
 		So.getTerminados().offer(this.proceso);
-		
+		proceso.cambiarEstado(new Terminado(this.proceso));
+		Cpu.settUsadaPorSO(Cpu.gettUsadaPorSO()+So.getTfp());//incrementa el contador global de Cpu usado X SO
+		inicioController.pv("Cpu ocupadado Quitando Recursos al "+ this.proceso.getId()+" 'TFP' "+" \n");
+
 	}
 
 	@Override
 	public void BloqueadoAListo() {}
 
+	@Override
+	public void NuevoAListo() {}
+	@Override
+	public void ListoAEjecutando() {}
 
 
 }

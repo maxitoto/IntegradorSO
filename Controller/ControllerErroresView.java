@@ -12,25 +12,36 @@ public class ControllerErroresView {
 
     public boolean validarTextField() {
         // comprobar TextField de ruta input
-        if (iv.getInputRutaText().getText().isEmpty() || iv.getInputRutaText().getText().isBlank()) {
+
+        if (iv.getInputRutaText().getText().isEmpty()) {
+
+
             JOptionPane.showMessageDialog(iv, "La ruta de entrada está vacía", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
 
         // comprobar TextField de ruta output
-        if (iv.getOutputRutaText().getText().isEmpty() || iv.getOutputRutaText().getText().isBlank()) {
+        if (iv.getOutputRutaText().getText().isEmpty()) {
+
+
             JOptionPane.showMessageDialog(iv, "La ruta de salida está vacía", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
 
         // comprobar TextField de TIP
-        if (iv.getTIPtext().getText().isEmpty() || iv.getTIPtext().getText().isBlank()) {
+
+        if (iv.getTIPtext().getText().isEmpty()) {
+
+
             JOptionPane.showMessageDialog(iv, "Tiempo que utiliza el sistema operativo para aceptar los nuevos procesos\n está vacío!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
             try {
                 double tip = Double.parseDouble(iv.getTIPtext().getText());
-                if (tip <= 0) {
+
+                if (tip < 0) {
+
+
                     JOptionPane.showMessageDialog(iv, "Tiempo que utiliza el sistema operativo para aceptar los nuevos procesos\n debe ser mayor a 0!", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     return false;
                 }
@@ -41,13 +52,19 @@ public class ControllerErroresView {
         }
 
         // comprobar TextField de TFP
-        if (iv.getTFPtext().getText().isEmpty() || iv.getTFPtext().getText().isBlank()) {
+
+        if (iv.getTFPtext().getText().isEmpty()) {
+
+
             JOptionPane.showMessageDialog(iv, "Tiempo que utiliza el sistema operativo para terminar los procesos\n está vacío!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
             try {
                 double tfp = Double.parseDouble(iv.getTFPtext().getText());
-                if (tfp <= 0) {
+
+                if (tfp < 0) {
+
+
                     JOptionPane.showMessageDialog(iv, "Tiempo que utiliza el sistema operativo para terminar los procesos\n debe ser mayor a 0!", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     return false;
                 }
@@ -58,13 +75,19 @@ public class ControllerErroresView {
         }
 
         // comprobar TextField de TCP
-        if (iv.getTCPtext().getText().isEmpty() || iv.getTCPtext().getText().isBlank()) {
+
+        if (iv.getTCPtext().getText().isEmpty()) {
+
+
             JOptionPane.showMessageDialog(iv, "Tiempo de conmutación entre procesos\n está vacío!", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
             try {
                 double tcp = Double.parseDouble(iv.getTCPtext().getText());
-                if (tcp <= 0) {
+
+                if (tcp < 0) {
+
+
                     JOptionPane.showMessageDialog(iv, "Tiempo de conmutación entre procesos\n debe ser mayor a 0!", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     return false;
                 }
@@ -76,13 +99,19 @@ public class ControllerErroresView {
 
         // comprobar TextField de Quantum
         if (iv.getQuantumtext().isVisible()) {
-            if (iv.getQuantumtext().getText().isEmpty() || iv.getQuantumtext().getText().isBlank()) {
+
+            if (iv.getQuantumtext().getText().isEmpty()) {
+
+
                 JOptionPane.showMessageDialog(iv, "Quantum\n está vacío!", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             } else {
                 try {
                     double quantum = Double.parseDouble(iv.getQuantumtext().getText());
-                    if (quantum <= 0) {
+
+                    if (quantum < 0) {
+
+
                         JOptionPane.showMessageDialog(iv, "Quantum\n debe ser mayor a 0!", "Advertencia", JOptionPane.WARNING_MESSAGE);
                         return false;
                     }
