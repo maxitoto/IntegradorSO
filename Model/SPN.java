@@ -1,4 +1,5 @@
 package Model;
+import java.util.Queue;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,5 +38,6 @@ public class SPN extends Politica {
 		// TODO Auto-generated method stub
 		return "SPN";
 	}
+
 
 }

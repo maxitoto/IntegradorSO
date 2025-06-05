@@ -4,6 +4,7 @@ package Model;
 import java.util.*;
 
 public class So {
+
     private static Queue<Proceso> Listos;
     private static Queue<Proceso> Bloqueados;
     private static Queue<Proceso> Nuevos;
@@ -36,6 +37,7 @@ public class So {
     	So.q=0;
     	So.contquantum=0;
     }
+
 
     public static void reset() {
         Listos = new LinkedList<>();
@@ -130,6 +132,8 @@ public class So {
 	public static void setContquantum(int contquantum) {
 		So.contquantum = contquantum;
 	}
+
+
 
 
 }

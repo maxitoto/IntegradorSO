@@ -3,6 +3,7 @@ package Model;
 
 public class Cpu {
 	   private static Cpu cpu;
+
 	   private static Proceso ejecutando;
 	   private static double timeOcioso = 0;
 	   private static double timeUsoXprocesos = 0;
@@ -61,7 +62,7 @@ public class Cpu {
 		Cpu.auditor = auditor;
 	}
 	
-	
+
 
     
 }

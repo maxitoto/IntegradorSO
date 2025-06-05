@@ -21,4 +21,5 @@ public class Terminado extends Estados {
 	@Override
 	public void BloqueadoAListo() {}
 
+
 }

@@ -24,6 +24,7 @@ public class Listo extends Estados {
 	public void EjecutandoABloqueado() {}
 	@Override
 	public void EjecutandoATerminado() {}
+
 	@Override
 	public void BloqueadoAListo() {}
 

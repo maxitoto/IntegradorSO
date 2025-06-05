@@ -9,6 +9,7 @@ public class Bloqueado extends Estados {
 	}
 
 
+
 	@Override
 	public void BloqueadoAListo() {
 		So.getListos().offer(this.proceso);
@@ -27,4 +28,5 @@ public class Bloqueado extends Estados {
 	public void EjecutandoABloqueado() {}
 	@Override
 	public void EjecutandoATerminado() {}
+
 }

@@ -3,7 +3,7 @@ package Model;
 import java.util.Collection;
 
 public class Proceso {
-	
+
 	//limites
     private Estados estado;
     private String id;
@@ -39,6 +39,7 @@ public class Proceso {
 		this.estado = new Nuevo(this);
 		
 		this.SumaDeTCPDesdeQueFuiCreado = 0;
+
 	}
 	
 	public void cambiarEstado(Estados estado) {
@@ -50,7 +51,7 @@ public class Proceso {
 	public  void EjecutandoAListo(){this.estado.EjecutandoAListo();}
 	public  void EjecutandoABloqueado(){this.estado.EjecutandoABloqueado();}
 	public  void EjecutandoATerminado(){this.estado.EjecutandoATerminado();}
-	public  void BloqueadoAListo(){this.estado.BloqueadoAListo();}
+
 
 	@Override
 	public String toString() {
@@ -158,6 +159,9 @@ public class Proceso {
 
 	public void setTengoLosRecursos(boolean tengoLosRecursos) {
 		this.tengoLosRecursos = tengoLosRecursos;
+
 	}
 
+    
+    
 }

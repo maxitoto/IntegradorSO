@@ -1,4 +1,6 @@
 package Model;
+import java.util.Queue;
+
 
 public class FCFS extends Politica{
 
@@ -20,4 +22,5 @@ public class FCFS extends Politica{
 		// TODO Auto-generated method stub
 		return "FCFS";
 	}
+
 }

@@ -21,7 +21,10 @@ public class inicioController implements ActionListener {
     private List<String> datosDeDocumento;
     private static int textCont=0;
 
+
     public inicioController(InicioView iv) {
+
+
         this.iv = iv;
         this.CEV = new ControllerErroresView(iv);
         this.iv.getBtnInput().addActionListener(this);
@@ -32,6 +35,7 @@ public class inicioController implements ActionListener {
     public void iniciar() {
         this.iv.setVisible(true);
     }
+
     public void actualizarProgress() {
     	Thread t1 = new Thread() {
     		public void run() {
@@ -84,6 +88,8 @@ public class inicioController implements ActionListener {
                         // Agregamos cada línea a la cola de prioridad
                         datosDeDocumento.add(linea);
                     }
+
+
                 }
             }
 
@@ -91,6 +97,7 @@ public class inicioController implements ActionListener {
             JOptionPane.showMessageDialog(iv, "Error al leer el archivo o en el formato de los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
     public void setOS() {
     	//datos del usuario
     	So.setTip(Integer.parseInt(iv.getTIPtext().getText()));
@@ -131,6 +138,8 @@ public class inicioController implements ActionListener {
     		So.getNuevos().offer(proceso);
 		}
     	
+
+
     }
     public static void pv(String texto) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getSelectedFile() + "/registro"+textCont+".txt", true))) {
@@ -148,6 +157,7 @@ public class inicioController implements ActionListener {
             formatted.append("[]");
         } else {
             formatted.append("[{\n");
+
 
             // Formateo para los encabezados
             formatted.append(String.format("%-" + spacing + "s", "Proceso"));
@@ -278,8 +288,9 @@ public class inicioController implements ActionListener {
                 inicioController.pv("T Cpu UsoxProcesos: " + Cpu.getTimeUsoXprocesos() + "\n");
                 inicioController.pv("T Cpu UsoxSo: " + Cpu.gettUsadaPorSO() + "\n");                
              }
+=======
+
         }
     }
-}
 
 

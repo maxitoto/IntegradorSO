@@ -3,15 +3,18 @@ package Model;
 import Controller.inicioController;
 
 public class Nuevo extends Estados {
+
 	
 	private Proceso proceso;
 	
+
 	public Nuevo(Proceso proceso){
 		this.proceso=proceso;
 	}
 
 	@Override
 	public void NuevoAListo() {
+
 		So.getListos().offer(this.proceso);
 		So.getNuevos().remove(this.proceso);
 		proceso.cambiarEstado(new Listo(this.proceso));
@@ -19,6 +22,7 @@ public class Nuevo extends Estados {
 		Cpu.settUsadaPorSO(Cpu.gettUsadaPorSO()+So.getTip());//incremento el contador global de CPU usado X So
 		inicioController.pv("Cpu ocupadado Asignando Recursos al "+ this.proceso.getId()+" 'TIP' "+" \n");
 	}
+
 
 	@Override
 	public void ListoAEjecutando() {}
